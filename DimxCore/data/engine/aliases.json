@@ -1,0 +1,19 @@
+[
+    { "type": "Texture", "alias": "default", "name": "textures/default.jpg" },
+    { "type": "Texture", "alias": "dimension-icon-default", "name": "textures/dimension-icon-default.png" },
+    { "type": "Texture", "alias": "placeholder.png", "name": "textures/placeholder.png" },
+    { "type": "Texture", "alias": "color_palette.png", "name": "textures/color_palette.png" },
+    { "type": "Texture", "alias": "model-thumbnail", "name": "textures/model-thumbnail.png" },
+    { "type": "Texture", "alias": "marker-thumbnail", "name": "textures/marker-thumbnail.png" },
+    { "type": "Texture", "alias": "horizontal-marker-thumb", "name": "textures/horizontal-marker-thumb.png" },
+    { "type": "Texture", "alias": "vertical-marker-thumb", "name": "textures/vertical-marker-thumb.png" },
+    { "type": "Texture", "alias": "cloud-anchor-thumbnail", "name": "textures/cloud-anchor-thumbnail.png" },
+    { "type": "Texture", "alias": "dummy-thumbnail", "name": "textures/dummy-thumbnail.png" },
+    { "type": "Texture", "alias": "sticky-dummy-floor-thumbnail", "name": "textures/sticky-dummy-floor-thumbnail.png" },
+    { "type": "Texture", "alias": "sticky-dummy-wall-thumbnail", "name": "textures/sticky-dummy-wall-thumbnail.png" },
+    { "type": "Texture", "alias": "video-thumbnail", "name": "textures/video-thumbnail.png" },
+    { "type": "Texture", "alias": "video-frame", "name": "textures/video-frame.jpg" },
+    { "type": "Texture", "alias": "audio-thumbnail", "name": "textures/audio-thumbnail.png" },
+    { "type": "Texture", "alias": "audio-frame", "name": "textures/audio-frame.png" },
+    { "type": "Texture", "alias": "multimedia-ui", "name": "textures/multimedia-ui.png" }
+]

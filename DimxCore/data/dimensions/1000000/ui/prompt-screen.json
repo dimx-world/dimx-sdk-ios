@@ -1,0 +1,51 @@
+ {
+    "name": "prompt-screen",
+    "type": "Window",
+    "visible": false,
+    "close_button": true,
+    "layout": {
+        "width": 400,
+        "height": 150,
+        "horizontal_align": "Center",
+        "vertical_align": "Center"
+    },
+    "modal": true,
+    "text": "Dialog",
+    "elements": [
+        {
+            "name": "details",
+            "type": "Text",
+            "layout": {
+                "horizontal_fill": true
+            }
+        },
+        {
+            "name": "input-txt",
+            "type": "InputText",
+            "layout": {
+                "top": 70,
+                "horizontal_fill": true
+            }
+        },
+        {
+            "name": "ok-btn",
+            "type": "Button",
+            "text": "OK",
+            "layout": {
+                "left": 45,
+                "top": 110,
+                "width": 150
+            }
+        },
+        {
+            "name": "cancel-btn",
+            "type": "Button",
+            "text": "Cancel",
+            "layout": {
+                "left": 205,
+                "top": 110,
+                "width": 150
+            }
+        }
+    ]
+}

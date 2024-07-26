@@ -1,0 +1,51 @@
+{
+    "Element": {
+        "font": "",
+        "font_size": -1,
+        "texture": "",
+        "texture_rect": "0 1 1 0",
+        "color": "1 1 1 1",
+        "background_color": "1 1 1 1",
+        "alpha": 0.5,
+        "frame_rounding": 3.0,
+        "frame_border_size": 1.0,
+        "border_color": "0.06 0.41 0.5 1",
+        "show_background": true
+    },
+
+    "Text": {
+        "alpha": 1
+    },
+
+    "Image": {
+        "alpha": 1
+    },
+
+    "Button": {
+        "texture": "",
+        "background_color": "0.02 0.15 0.23 1",
+        "alpha": 1.0,
+        "force_border": false,
+        "disabled_alpha": 0.3
+    },
+
+    "Window": {
+        "modal_background_alpha": 0.8,
+        "show_background": true,
+        "force_border": false
+    },
+
+    "LoadingIndicator": {
+        "color": "0.1 0.81 1 1",
+        "backdrop_color": "0.1 0.81 1 1",
+        "alpha": 1
+    },
+
+    "ProgressBar": {
+        "color": "0.1 0.81 1 1"
+    },
+
+    "ProgressBarCircular": {
+        "color": "0.1 0.81 1 1"
+    }
+}

@@ -1,0 +1,117 @@
+ {
+    "name": "object-placement-screen",
+    "type": "Window",
+    "visible": false,
+    "layout": {
+        "left": 0,
+        "top": 0,
+        "horizontal_fill": true,
+        "vertical_fill": true
+    },
+    "style": {
+        "show_background": false
+    },
+    "elements": [
+        {
+            "name": "message-text",
+            "type": "Text",
+            "text": "Finding surface..",
+            "layout": {
+                "left": 10,
+                "top": 10,
+                "horizontal_fill": true,
+                "height": 100
+            }
+        },
+        {
+            "name": "translate-touch",
+            "type": "TouchPad",
+            "layout": {
+                "left": 0,
+                "top": 0,
+                "right": -210,
+                "bottom": -410
+            },
+            "style": {
+                "show_background": false
+            }
+        },
+        {
+            "name": "rotate-touch",
+            "type": "TouchPad",
+            "layout": {
+                "horizontal_fill": true,
+                "vertical_align": "Bottom",
+                "offset_y": 200,
+                "left": 0,
+                "height": 200
+            },
+            "style": {
+                "show_background": false,
+                "texture": "editor-mobile-ui",
+                "texture_rect": "0 200 199 279"
+            }
+        },
+        {
+            "name": "scale-touch",
+            "type": "TouchPad",
+            "layout": {
+                "horizontal_align": "Right",
+                "offset_x": 50,
+                "vertical_align": "Bottom",
+                "offset_y": 600,
+                "width": 100,
+                "height": 800
+            },
+            "style": {
+                "show_background": false,
+                "texture": "editor-mobile-ui",
+                "texture_rect": "0 280 39 459"
+            }
+        },
+        {
+            "name": "pinch-btn",
+            "type": "Button",
+            "toggle": true,
+            "_image_region": "150 0 350 200",
+            "layout": {
+                "horizontal_align": "Right",
+                "vertical_align": "Bottom",
+                "_offset_x": 200,
+                "offset_y": 400,
+                "width": 200,
+                "height": 200
+            },
+            "style": {
+                "texture": "editor-mobile-ui",
+                "texture_rect": "200 200 299 299"
+            }
+        },
+        {
+            "name": "place-btn",
+            "type": "Button",
+            "text": "Ok",
+            "layout": {
+                "horizontal_align": "Left",
+                "offset_x": 50,
+                "vertical_align": "Bottom",
+                "offset_y": 50,
+                "width": 360,
+                "height": 120
+            }
+        },
+        {
+            "name": "cancel-btn",
+            "type": "Button",
+            "text": "Cancel",
+            "layout": {
+                "horizontal_align": "Right",
+                "offset_x": 50,
+                "vertical_align": "Bottom",
+                "offset_y": 50,
+                "width": 360,
+                "height": 120
+            }
+        }
+    ]
+}

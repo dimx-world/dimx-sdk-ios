@@ -1,0 +1,76 @@
+{
+    "name": "dimensions-screen",
+    "type": "Window",
+    "visible": false,
+    "modal": true,
+    "scrollable": true,
+    "text": "Dimensions",
+    "close_button": true,
+    "layout": {
+        "horizontal_align": "Center",
+        "top": 55,
+        "width": 470,
+        "vertical_fill": true
+    },
+    "elements": [
+        {
+            "name": "list-container",
+            "type": "Container",
+            "item_spacing": 5,
+            "layout": {
+                "top": 40,
+                "horizontal_fill": true,
+                "vectical_fill": true
+            },
+            "item_template": {
+                "type": "Element",
+                "layout": {
+                    "horizontal_fill": true,
+                    "height": 50
+                },
+                "elements": [
+                    {
+                        "name": "dimension-btn",
+                        "type": "Button",
+                        "text": "dim-1234",
+                        "layout": {
+                            "parent_based": true,
+                            "left": 0,
+                            "top": 0,
+                            "width": 300,
+                            "height": 50
+                        }
+                    },
+                    {
+                        "name": "edit-btn",
+                        "type": "Button",
+                        "layout": {
+                            "parent_based": true,
+                            "left": 310,
+                            "top": 0,
+                            "width": 50,
+                            "height": 50
+                        },
+                        "style": {
+                            "texture": "mobile-ui",
+                            "texture_rect": "0 200 99 299"
+                        }
+                    },
+                    {
+                        "name": "on-off-btn",
+                        "type": "Button",
+                        "toggle": true,
+                        "text": "ON / OFF",
+                        "layout": {
+                            "parent_based": true,
+                            "left": 370,
+                            "top": 0,
+                            "width": 80,
+                            "height": 50
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

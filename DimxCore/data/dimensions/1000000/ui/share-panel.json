@@ -1,0 +1,139 @@
+{
+    "?_ignore_": [
+        { "condition": {"type": "platform", "value": "Mobile"}, "value": false },
+        { "condition": "", "value": true }
+    ],
+
+    "name": "share-panel",
+    "type": "Window",
+    "panel": true,
+    "visible": false,
+    "layout": {
+        "horizontal_align": "Right",
+        "vertical_align": "Bottom",
+        "offset_x": 10,
+        "offset_y": 200,
+        "width": 300,
+        "height": 300
+    },
+    "style": {
+        "show_background": false
+    },
+    "elements": [
+        {
+            "name": "take-video-btn",
+            "type": "Button",
+            "layout": {
+                "left": 150,
+                "top": 0,
+                "width": 120,
+                "height": 120
+            },
+            "style": {
+                "texture": "mobile-ui",
+                "texture_rect": "300 100 399 199"
+            }
+        },
+        {
+            "name": "stop-video-btn",
+            "type": "Button",
+            "visible": false,
+            "layout": {
+                "left": 150,
+                "top": 0,
+                "width": 120,
+                "height": 120
+            },
+            "style": {
+                "texture": "mobile-ui",
+                "texture_rect": "300 200 399 299"
+            }
+        },
+        {
+            "name": "take-video-img",
+            "type": "Image",
+            "visible": false,
+            "texture_scale": "Fill",
+            "layout": {
+                "left": 0,
+                "top": 0,
+                "width": 120,
+                "height": 120
+            },
+            "style": {
+                "alpha": 0.5
+            }
+        },
+        {
+            "name": "take-video-time-txt",
+            "type": "Text",
+            "visible": false,
+            "text": "00:00",
+            "layout": {
+                "left": 12,
+                "top": 37,
+                "width": 120,
+                "height": 40
+            }
+        },
+        {
+            "name": "share-video-btn",
+            "type": "Button",
+            "visible": false,
+            "layout": {
+                "left": 0,
+                "top": 0,
+                "width": 120,
+                "height": 120
+            },
+            "style": {
+                "texture": "mobile-ui",
+                "texture_rect": "400 100 499 199"
+            }
+        },
+        {
+            "name": "take-photo-btn",
+            "type": "Button",
+            "layout": {
+                "left": 150,
+                "top": 150,
+                "width": 120,
+                "height": 120
+            },
+            "style": {
+                "texture": "mobile-ui",
+                "texture_rect": "200 100 299 199"
+            }
+        },
+        {
+            "name": "share-photo-img",
+            "type": "Image",
+            "visible": false,
+            "texture_scale": "Fill",
+            "layout": {
+                "left": 0,
+                "top": 150,
+                "width": 120,
+                "height": 120
+            },
+            "style": {
+                "alpha": 0.5
+            }
+        },
+        {
+            "name": "share-photo-btn",
+            "type": "Button",
+            "visible": false,
+            "layout": {
+                "left": 0,
+                "top": 150,
+                "width": 120,
+                "height": 120
+            },
+            "style": {
+                "texture": "mobile-ui",
+                "texture_rect": "400 100 499 199"
+            }
+        }
+    ]
+}

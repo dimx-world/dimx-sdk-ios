@@ -1,0 +1,40 @@
+{
+    "?_ignore_": [
+        { "condition": {"type": "platform", "value": "Mobile"}, "value": false },
+        { "condition": "", "value": true }
+    ],
+
+    "name": "mobile-properties-screen",
+    "type": "Window",
+    "text": "Properties",
+    "visible": false,
+    "modal": true,
+    "close_button": true,
+    "scrollable": true,
+    "layout": {
+        "_horizontal_align": "Center",
+        "horizontal_fill": true,
+        "vertical_fill": true
+    },
+    "elements": [
+        {
+            "name": "delete-btn",
+            "type": "Button",
+            "text": "Delete",
+            "layout": {
+                "horizontal_align": "Right",
+                "width": 350
+            }
+        },
+        {
+            "name": "props-view",
+            "type": "PropertyView",
+            "keep_first_item_open": true,
+            "same_line_label": false,
+            "layout": {
+                "horizontal_fill": true,
+                "vertical_fill": true
+            }
+        }
+    ]
+}

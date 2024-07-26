@@ -1,0 +1,29 @@
+{
+    "root": {
+        "elements": [
+            "@corner-panel.json",
+            "@dimensions-screen.json",
+            "@active-dimensions-screen.json",
+            "@dimension-screen.json",
+            "@locations-screen.json",
+            "@placement-screen.json",
+            "@scan-screen.json",
+            "@notification-panel.json",
+            "@alert-screen.json",
+            "@confirm-screen.json",
+            "@prompt-screen.json",
+            "@menu-screen.json",
+            "@login-screen.json",
+            "@account-screen.json",
+            "@settings-screen.json",
+            "@stats-panel.json",
+            "@mobile-main-screen.json",
+            "@mobile-developer-screen.json",
+            "@mobile-developer-panel.json",
+            "@stupid-warn-panel.json",
+            "@right-panel.json",
+            "@logger-panel.json",
+            "@share-panel.json",
+        ]
+    }
+}

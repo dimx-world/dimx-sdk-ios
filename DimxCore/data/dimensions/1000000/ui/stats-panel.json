@@ -1,0 +1,19 @@
+{
+    "name": "stats-panel",
+    "visible": false,
+    "type": "Window",
+    "panel": true,
+    "receive_input": false,
+    "layout": { "left": 0, "top": 100, "width": 300, "height": 500 },
+    "style": {
+        "show_background": false
+    },
+    "elements": [
+        {
+            "name": "fps-text",
+            "type": "Text",
+            "layout": { "left": 10, "top": 0, "horizontal_fill": true, "height": 40},
+            "text": "9999"
+        }
+    ]
+}

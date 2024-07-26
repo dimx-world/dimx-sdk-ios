@@ -1,0 +1,39 @@
+{
+    "?_ignore_": [
+        { "condition": {"type": "platform", "value": "Desktop"}, "value": true },
+        { "condition": "", "value": false }
+    ],
+
+    "name": "mobile-top-panel",
+    "type": "Window",
+    "panel": true,
+    "layout": {
+        "horizontal_align": "Right",
+        "width": 300,
+        "top": 5,
+        "height": 100
+    },
+    "style": {
+        "show_background": false
+    },
+    "elements": [
+        {
+            "name": "save-btn",
+            "type": "Button",
+            "text": "Saving...",
+            "image_region": "0 0 50 50",
+            "align_text_left": true,
+            "text_padding": 60,
+            "visible": false,
+            "layout": {
+                "horizontal_align": "Right",
+                "width": 250,
+                "height": 50
+            },
+            "style": {
+                "texture": "editor-mobile-ui",
+                "texture_rect": "400 0 499 99"
+            }
+        }
+    ]
+}

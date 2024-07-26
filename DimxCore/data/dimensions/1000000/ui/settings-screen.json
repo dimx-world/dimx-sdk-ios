@@ -1,0 +1,27 @@
+ {
+    "name": "settings-screen",
+    "type": "Window",
+    "visible": false,
+    "modal": false,
+    "text": "Settings",
+    "scrollable": true,
+    "close_button": true,
+    "layout": {
+        "horizontal_align": "Center",
+        "top": 55,
+        "width": 850,
+        "vertical_fill": true
+    },
+    "elements": [
+        {
+            "name": "props-view",
+            "type": "PropertyView",
+            "layout": {
+                "top": 40,
+                "horizontal_fill": true,
+                "_vertical_fill": true,
+                "height": 500
+            }
+        }
+    ]
+}

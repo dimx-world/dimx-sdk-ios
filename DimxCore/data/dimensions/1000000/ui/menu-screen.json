@@ -1,0 +1,26 @@
+{
+    "name": "menu-screen",
+    "type": "Window",
+    "visible": false,
+    "modal": true,
+    "layout": {
+        "horizontal_align": "Center",
+        "vertical_align": "Center",
+        "width": 500,
+        "height": 400
+    },
+    "style": {
+        "show_background": false,
+        "modal_background_alpha": 0
+    },
+    "elements": [
+        {
+            "name": "menu",
+            "type": "Menu",
+            "layout": {
+                "horizontal_fill": true,
+                "vertical_fill": true
+            }
+        }
+    ]
+}

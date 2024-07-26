@@ -1,0 +1,215 @@
+{
+    "?_ignore_": [
+        { "condition": {"type": "platform", "value": "Desktop"}, "value": false },
+        { "condition": "", "value": true }
+    ],
+
+    "name": "top-panel",
+    "type": "Window",
+    "panel": true,
+    "layout": {
+        "vertical_align": "Top",
+        "height": 50,
+        "left": 0,
+        "offset_y": 5,
+        "horizontal_fill": true
+    },
+    "custom": {
+        "editor_menu": {
+            "layout": {
+                "horizontal_align": "Right",
+                "top": 55,
+                "width": 250
+            },
+            "item_height": 20,
+            "items": [
+                { "id": "Exit", "text": "Exit Editor" },
+                { "id": "StyleEditor", "text": "Style Editor" }
+            ]
+        }
+    },
+    "elements": [
+        {
+            "name": "logo-icon",
+            "type": "Image",
+            "visible": true,
+            "layout": {
+                "left": 10,
+                "top": 0,
+                "width": 50,
+                "height": 50
+            },
+            "style": {
+                "texture": "editor-desktop-ui",
+                "texture_rect": "0 100 99 199"
+            }
+        },
+        {
+            "name": "selected-dim-text",
+            "type": "Button",
+            "text": "Select dimension..",
+            "image_region": "0 0 30 30",
+            "align_text_left": true,
+            "text_padding": 30,
+            "?enabled": [
+                { "condition": {"type": "platform", "value": "Web"}, "value": false },
+                { "condition": "", "value": true }
+            ],
+            "layout": {
+                "left": 100,
+                "vertical_align": "Top",
+                "width": 200,
+                "height": 30
+            },
+            "style": {
+                "texture": "editor-desktop-ui",
+                "texture_rect": "250 0 299 49"
+            }
+        },
+        {
+            "name": "selected-loc-text",
+            "type": "Button",
+            "text": "Select location..",
+            "image_region": "0 0 30 30",
+            "align_text_left": true,
+            "text_padding": 30,
+            "layout": {
+                "left": 310,
+                "width": 200,
+                "height": 30,
+                "vertical_align": "Top"
+            },
+            "style": {
+                "texture": "editor-desktop-ui",
+                "texture_rect": "250 50 299 99"
+            }
+        },
+        {
+            "name": "assets-btn",
+            "type": "Button",
+            "text": "Assets",
+            "image_region": "0 0 30 30",
+            "align_text_left": true,
+            "text_padding": 30,
+            "layout": {
+                "left": 520,
+                "width": 100,
+                "height": 30,
+                "vertical_align": "Top"
+            },
+            "style": {
+                "texture": "editor-desktop-ui",
+                "texture_rect": "0 50 49 99"
+            }
+        },
+
+        {
+            "name": "viewer-btn",
+            "type": "Button",
+            "image_region": "20 0 80 30",
+            "layout": {
+                "width": 100,
+                "height": 30,
+                "offset_x": 430,
+                "vertical_align": "Top",
+                "horizontal_align": "Right"
+            },
+            "style": {
+                "texture": "editor-desktop-ui",
+                "texture_rect": "300 100 399 149"
+            }
+        },
+
+        {
+            "name": "reload-btn",
+            "type": "Button",
+            "text": "Reload",
+            "image_region": "0 0 30 30",
+            "align_text_left": true,
+            "text_padding": 30,
+            "layout": {
+                "width": 100,
+                "height": 30,
+                "offset_x": 310,
+                "vertical_align": "Top",
+                "horizontal_align": "Right"
+            },
+            "style": {
+                "texture": "editor-desktop-ui",
+                "texture_rect": "300 0 349 49"
+            }
+        },
+
+        {
+            "name": "save-btn",
+            "type": "Button",
+            "text": "Saving...",
+            "image_region": "0 0 30 30",
+            "align_text_left": true,
+            "text_padding": 25,
+            "layout": {
+                "vertical_align": "Top",
+                "horizontal_align": "Right",
+                "width": 110,
+                "height": 30,
+                "offset_x": 190
+            },
+            "style": {
+                "texture": "editor-desktop-ui",
+                "texture_rect": "400 50 449 99"
+            }
+        },
+
+        {
+            "name": "publish-btn",
+            "type": "Button",
+            "text": "Publish",
+            "image_region": "0 0 30 30",
+            "align_text_left": true,
+            "text_padding": 30,
+            "layout": {
+                "vertical_align": "Top",
+                "horizontal_align": "Right",
+                "width": 100,
+                "height": 30,
+                "offset_x": 80
+            },
+            "style": {
+                "texture": "editor-desktop-ui",
+                "texture_rect": "350 0 399 49"
+            }
+        },
+
+        {
+            "name": "settings-btn",
+            "type": "Button",
+            "layout": {
+                "vertical_align": "Top",
+                "horizontal_align": "Right",
+                "offset_x": 40,
+                "width": 27,
+                "height": 27
+            },
+            "style": {
+                "texture": "editor-desktop-ui",
+                "texture_rect": "400 0 449 49"
+            }
+        },
+
+
+        {
+            "name": "menu-btn",
+            "type": "Button",
+            "layout": {
+                "vertical_align": "Top",
+                "horizontal_align": "Right",
+                "width": 27,
+                "height": 27
+            },
+            "style": {
+                "texture": "editor-desktop-ui",
+                "texture_rect": "450 0 499 49"
+            }
+        }
+    ]
+}

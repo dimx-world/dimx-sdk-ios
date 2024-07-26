@@ -1,0 +1,322 @@
+{
+    "name": "assets-screen",
+    "type": "Window",
+    "text": "Assets",
+    "visible": false,
+    "modal": false,
+    "close_button": true,
+    "layout": {
+        "horizontal_align": "Center",
+        "top": 55,
+        "width": 850,
+        "vertical_fill": true
+    },
+    "custom": {
+        "import_menu": {
+            "layout": {
+                "horizontal_align": "Center",
+                "top": 165,
+                "width": 180,
+                "height": 115,
+                "offset_x": 325
+            },
+            "item_height": 20,
+            "items": [
+                { "id": "Textures", "text": "Textures"},
+                { "id": "Model", "text": "Model"},
+                { "id": "Store", "text": "From Asset Store.."}
+            ]
+        }
+    },
+    "elements": [
+        {
+            "name": "assets-tab-bar",
+            "type": "TabBar",
+            "elements": [
+                {
+                    "name": "assets-tab-bar-dimension",
+                    "type": "TabBarItem",
+                    "text": "  Dimension  ",
+                    "elements": []
+                },
+                {
+                    "name": "assets-tab-bar-location",
+                    "type": "TabBarItem",
+                    "text": "  Location  ",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "all-filter-btn",
+            "type": "Button",
+            "text": "All",
+            "toggle": true,
+            "layout": {
+                "left": 10,
+                "top": 80,
+                "width": 50,
+                "height": 50
+            },
+            "style": {
+                "frame_rounding": 0
+            }
+        },
+        {
+            "name": "texture-filter-btn",
+            "type": "Button",
+            "text": "Textures",
+            "toggle": true,
+            "layout": {
+                "left": 60,
+                "top": 80,
+                "width": 150,
+                "height": 50
+            },
+            "style": {
+                "frame_rounding": 0
+            }
+        },
+        {
+            "name": "model-filter-btn",
+            "type": "Button",
+            "text": "Models",
+            "toggle": true,
+            "layout": {
+                "left": 210,
+                "top": 80,
+                "width": 150,
+                "height": 50
+            },
+            "style": {
+                "frame_rounding": 0
+            }
+        },
+        {
+            "name": "import-btn",
+            "type": "Button",
+            "text": "Import..",
+            "layout": {
+                "horizontal_align": "Right",
+                "top": 80,
+                "width": 200
+            }
+        },
+        {
+            "name": "assets-list",
+            "type": "ListBox",
+            "layout": {
+                "left": 10,
+                "top": 135,
+                "width": 350,
+                "vertical_fill": true
+            },
+            "style": {
+                "color_msg_lines": true
+            }
+        },
+
+        {
+            "name": "asset-name-txt",
+            "type": "Text",
+            "text": "Texture: name-of-texture",
+            "layout": {
+                "left": 370,
+                "top": 140,
+                "width": 350
+            }
+        },
+
+        {
+            "name": "delete-btn",
+            "type": "Button",
+            "text": "Delete",
+            "layout": {
+                "horizontal_align": "Right",
+                "top": 135,
+                "width": 120
+            }
+        },
+
+        {
+            "name": "message-txt",
+            "type": "Text",
+            "multiline": true,
+            "layout": {
+                "left": 370,
+                "top": 170,
+                "horizontal_fill": true,
+                "vertical_fill": true
+            },
+            "wrap_text": true
+        },
+
+        {
+            "name": "texture-tab-bar",
+            "type": "TabBar",
+            "visible": false,
+            "layout": {
+                "left": 370,
+                "top": 170,
+                "horizontal_fill": true,
+                "vertical_fill": true
+            },
+            "elements": [
+                {
+                    "name": "texture-preview-tab",
+                    "type": "TabBarItem",
+                    "text": "  Preview  ",
+                    "elements": [
+                        {
+                            "name": "texture-preview",
+                            "type": "Image",
+                            "texture_scale": "Fit",
+                            "layout": {
+                                "left": 370,
+                                "top": 205,
+                                "horizontal_fill": true,
+                                "vertical_fill": true
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "texture-preview-tab",
+                    "type": "TabBarItem",
+                    "text": "  Status  ",
+                    "elements": [
+                    ]
+                }
+            ]
+        },
+
+        {
+            "name": "model-tab-bar",
+            "type": "TabBar",
+            "visible": false,
+            "layout": {
+                "left": 370,
+                "top": 170,
+                "horizontal_fill": true,
+                "vertical_fill": true
+            },
+            "elements": [
+                {
+                    "name": "model-preview-tab",
+                    "type": "TabBarItem",
+                    "text": "  Preview  ",
+                    "visible": false,
+                    "elements": []
+                },
+                {
+                    "name": "model-details-tab",
+                    "type": "TabBarItem",
+                    "text": "  Details  ",
+                    "selected": true,
+                    "elements": [
+                        {
+                            "name": "model-details-txt",
+                            "type": "Text",
+                            "visible": true,
+                            "multiline": true,
+                            "wrap_text": true,
+                            "layout": {
+                                "left": 370,
+                                "top": 200,
+                                "horizontal_fill": true,
+                                "vertical_fill": true
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "model-files-tab",
+                    "type": "TabBarItem",
+                    "text": "  Files  ",
+                    "elements": [
+                        {
+                            "name": "add-model-files-btn",
+                            "type": "Button",
+                            "text": "Add Model Files..",
+                            "layout": {
+                                "left": 370,
+                                "top": 205,
+                                "width": 200
+                            }
+                        },
+                        {
+                            "name": "delete-model-file-btn",
+                            "type": "Button",
+                            "text": "Delete File",
+                            "layout": {
+                                "horizontal_align": "Right",
+                                "top": 205,
+                                "width": 200
+                            }
+                        },
+                        {
+                            "name": "model-files-list",
+                            "type": "ListBox",
+                            "layout": {
+                                "left": 370,
+                                "top": 240,
+                                "horizontal_fill": true,
+                                "vertical_fill": true
+                            },
+                            "style": {
+                                "color_msg_lines": true
+                            },
+                            "items": [
+                                "models/item.bin",
+                                "models/item-suctom-anim.bin",
+                                "models/diffuse-tex.png",
+                                "models/thumbnail.png"
+                            ]
+                        },
+                    ]
+                },
+                {
+                    "name": "model-materials-tab",
+                    "type": "TabBarItem",
+                    "text": "  Materials  ",
+                    "elements": [
+                        {
+                            "name": "model-materials-txt",
+                            "type": "Text",
+                            "visible": true,
+                            "multiline": true,
+                            "wrap_text": true,
+                            "layout": {
+                                "left": 370,
+                                "top": 200,
+                                "horizontal_fill": true,
+                                "vertical_fill": true
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "model-status-tab",
+                    "type": "TabBarItem",
+                    "text": "Status",
+                    "elements": [
+                        {
+                            "name": "model-status-txt",
+                            "type": "Text",
+                            "visible": true,
+                            "multiline": true,
+                            "layout": {
+                                "left": 370,
+                                "top": 200,
+                                "horizontal_fill": true,
+                                "vertical_fill": true
+                            },
+                            "wrap_text": true
+                        }
+                    ]
+                }
+            ]
+        },
+
+    ]
+}

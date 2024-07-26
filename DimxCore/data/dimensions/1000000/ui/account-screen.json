@@ -1,0 +1,35 @@
+{
+    "name": "account-screen",
+    "type": "Window",
+    "visible": false,
+    "scrollable": true,
+    "text": "Current account",
+    "scrollable": true,
+    "close_button": true,
+    "layout": {
+        "horizontal_align": "Center",
+        "top": 55,
+        "width": 400,
+        "vertical_fill": true
+    },
+    "elements": [
+        {
+            "name": "username-label",
+            "type": "Text",
+            "text": "Username",
+            "layout": { "horizontal_fill": true }
+        },
+        {
+            "name": "username-input",
+            "type": "InputText",
+            "read_only": true,
+            "layout": { "horizontal_fill": true }
+        },
+        {
+            "name": "logout-btn",
+            "type": "Button",
+            "text": "Logout",
+            "layout": { "horizontal_fill": true }
+        }
+    ]
+}

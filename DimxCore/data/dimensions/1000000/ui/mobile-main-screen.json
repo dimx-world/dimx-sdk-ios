@@ -1,0 +1,54 @@
+{
+    "?_ignore_": [
+        { "condition": {"type": "platform", "value": "Mobile"}, "value": false },
+        { "condition": "", "value": true }
+    ],
+
+    "name": "mobile-main-screen",
+    "type": "Window",
+    "panel": true,
+    "layout": {
+        "left": 0,
+        "vertical_align": "Bottom",
+        "horizontal_align": "Center",
+        "horizontal_fill": true,
+        "height": 180
+    },
+    "style": {
+        "show_background": false
+    },
+    "elements": [
+        {
+            "name": "scan-btn",
+            "type": "Button",
+            "visible": false,
+            "layout": {
+                "horizontal_align": "Left",
+                "offset_x": 70,
+                "vertical_align": "Bottom",
+                "width": 150,
+                "height": 150
+            },
+            "style": {
+                "texture": "mobile-ui",
+                "texture_rect": "100 0 199 99"
+            }
+        },
+        {
+            "name": "return-btn",
+            "type": "Button",
+            "visible": false,
+            "layout": {
+                "horizontal_align": "Right",
+                "offset_x": 30,
+                "vertical_align": "Bottom",
+                "width": 120,
+                "height": 120
+            },
+            "style": {
+                "texture": "mobile-ui",
+                "texture_rect": "200 0 299 99"
+            }
+        }
+    ]
+}

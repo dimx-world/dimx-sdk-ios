@@ -1,0 +1,107 @@
+{
+    "name": "dimension-screen",
+    "type": "Window",
+    "visible": false,
+    "modal": true,
+    "scrollable": true,
+    "text": "Dimension: 1234567890",
+    "close_button": true,
+    "layout": {
+        "horizontal_align": "Center",
+        "top": 55,
+        "width": 470,
+        "vertical_fill": true
+    },
+    "elements": [
+        {
+            "name": "icon-img",
+            "type": "Image",
+            "layout": { "left": 5, "top": 40, "width": 50, "height": 50 },
+            "style": { "texture": "dimension-icon-default" }
+        },
+
+        {
+            "name": "dim-edit-btn",
+            "type": "Button",
+            "layout": {
+                "left": 120,
+                "top": 40,
+                "width": 50,
+                "height": 50
+            },
+            "toggle": true,
+            "style": {
+                "texture": "mobile-ui",
+                "texture_rect": "0 200 99 299"
+            }
+        },
+
+        {
+            "name": "dim-toggle-btn",
+            "type": "Button",
+            "layout": { "left": 170, "top": 40, "width": 80, "height": 50 },
+            "toggle": true,
+            "text": "ON / OFF"
+        },
+
+        {
+            "name": "list-container",
+            "type": "Container",
+            "item_spacing": 5,
+            "layout": {
+                "top": 100,
+                "horizontal_fill": true,
+                "vectical_fill": true
+            },
+            "item_template": {
+                "type": "Element",
+                "layout": {
+                    "horizontal_fill": true,
+                    "height": 50
+                },
+                "elements": [
+                    {
+                        "name": "location-btn",
+                        "type": "Button",
+                        "text": "dim-1234",
+                        "layout": {
+                            "parent_based": true,
+                            "left": 0,
+                            "top": 0,
+                            "width": 300,
+                            "height": 50
+                        }
+                    },
+                    {
+                        "name": "loc-edit-btn",
+                        "type": "Button",
+                        "layout": {
+                            "parent_based": true,
+                            "left": 310,
+                            "top": 0,
+                            "width": 50,
+                            "height": 50
+                        },
+                        "style": {
+                            "texture": "mobile-ui",
+                            "texture_rect": "0 200 99 299"
+                        }
+                    },
+                    {
+                        "name": "loc-on-off-btn",
+                        "type": "Button",
+                        "toggle": true,
+                        "text": "ON / OFF",
+                        "layout": {
+                            "parent_based": true,
+                            "left": 370,
+                            "top": 0,
+                            "width": 80,
+                            "height": 50
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

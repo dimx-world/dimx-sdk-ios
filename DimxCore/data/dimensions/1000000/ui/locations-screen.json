@@ -1,0 +1,33 @@
+{
+    "name": "locations-screen",
+    "type": "Window",
+    "visible": false,
+    "modal": true,
+    "text": "Public locations",
+    "region": { "left": 100, "top": 250, "right": "right - 200", "bottom": "bottom - 200" },
+    "elements": [
+        {
+            "name": "locations-list",
+            "type": "ListBox",
+            "region": { "left": 10, "top": 50, "width": 300, "bottom": "bottom -10" }
+        },
+        {
+            "name": "enter-location",
+            "type": "Button",
+            "region": { "right": "right - 10", "top": 50, "width": 160, "height": 70 },
+            "text": "Enter"
+        },
+        {
+            "name": "exit-location",
+            "type": "Button",
+            "region": { "right": "right - 10", "top": 130, "width": 160, "height": 70 },
+            "text": "Exit"
+        },
+        {
+            "name": "details-text",
+            "type": "Text",
+            "region": { "left": 320, "top": 50, "right": "right - 180", "bottom": 300 },
+            "text": "Location Title\nGPS: 51.4918876, -0.0050412, 17.67\nCreated: 5th Jan 2020\nActive dimensions: 5\nUser reviews: ..."
+        }
+    ]
+}

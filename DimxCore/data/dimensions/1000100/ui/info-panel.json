@@ -1,0 +1,46 @@
+{
+    "name": "info-panel",
+    "visible": false,
+    "type": "Window",
+    "panel": true,
+    "region": { "left": 315, "top": 80, "width": 500, "height": 500 },
+    "style": { "show_background": false },
+    "elements": [
+        {
+            "name": "dimension-lbl",
+            "type": "Text",
+            "region": { "left": 10, "top": 0, "width": 200, "height": 60 },
+            "text": "Dimension:"
+        },
+        {
+            "name": "dimension-txt",
+            "type": "Text",
+            "region": { "left": 220, "top": 0, "width": 200, "height": 60 },
+            "text": "dim-xyz"
+        },
+        {
+            "name": "location-lbl",
+            "type": "Text",
+            "region": { "left": 10, "top": 70, "width": 200, "height": 60 },
+            "text": "Location:"
+        },
+        {
+            "name": "location-txt",
+            "type": "Text",
+            "region": { "left": 220, "top": 70, "width": 200, "height": 60 },
+            "text": "loc-abc"
+        },
+        {
+            "name": "selection-lbl",
+            "type": "Text",
+            "region": { "left": 10, "top": 140, "width": 200, "height": 60 },
+            "text": "Selection:"
+        },
+        {
+            "name": "selection-txt",
+            "type": "Text",
+            "region": { "left": 220, "top": 140, "width": 200, "height": 60 },
+            "text": "Object-1234"
+        }
+    ]
+}

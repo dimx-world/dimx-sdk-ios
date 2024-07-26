@@ -1,0 +1,30 @@
+ {
+    "name": "placement-screen",
+    "type": "Window",
+    "visible": false,
+    "layout": { "width": 810, "height": 800, "horizontal_align": "Center", "vertical_align": "Center" },
+    "style": {
+        "show_background": false
+    },
+    "elements": [
+        {
+            "name": "header-text",
+            "type": "Text",
+            "layout": { "left": 10, "top": 10, "width": 400, "height": 100 },
+            "text": "Detecting surfaces..."
+        },
+        {
+            "name": "place-btn",
+            "type": "Button",
+            "enabled": false,
+            "text": "Place",
+            "layout": { "left": 5, "top": 600, "width": 350, "height": 120 }
+        },
+        {
+            "name": "cancel-btn",
+            "type": "Button",
+            "text": "Cancel",
+            "layout": { "left": 450, "top": 600, "width": 350, "height": 120 }
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+ {
+    "name": "anchor-placement-screen",
+    "type": "Window",
+    "visible": false,
+    "layout": { "width": 900, "height": 1200, "horizontal_align": "Center", "vertical_align": "Center" },
+    "style": {
+        "show_background": false
+    },
+    "elements": [
+        {
+            "name": "data-level-text",
+            "type": "Text",
+            "layout": { "left": 10, "top": 10, "horizontal_fill": true, "height": 100 },
+            "text": "Creation data level"
+        },
+        {
+            "name": "message-text",
+            "type": "Text",
+            "layout": { "left": 10, "top": 110, "horizontal_fill": true, "height": 100 },
+            "text": "message"
+        },
+
+        {
+            "name": "place-btn",
+            "type": "Button",
+            "enabled": false,
+            "layout": { "left": 5, "top": 1000, "width": 360, "height": 120 },
+            "text": "Place"
+        },
+        {
+            "name": "cancel-btn",
+            "type": "Button",
+            "layout": { "left": 550, "top": 1000, "width": 360, "height": 120 },
+            "text": "Cancel"
+        }
+    ]
+}

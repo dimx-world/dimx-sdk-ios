@@ -1,0 +1,26 @@
+{
+    "name": "stupid-warn-panel",
+    "type": "Window",
+    "panel": true,
+    "layout": { "left": 50, "top": 100, "horizontal_fill": true, "height": 300 },
+    "style": { "show_background": false },
+    "custom": {
+        "show_time": 10
+    },
+    "?_ignore_": [
+        { "condition": { "type": "platform", "value": "Android"}, "value": false },
+        { "condition": "", "value": true } ],
+    "elements": [
+        {
+            "name": "stupid-warn-text",
+            "type": "Text",
+            "layout": {
+                "left": 0,
+                "top": 0,
+                "horizontal_fill": true,
+                "vertical_fill": true
+            },
+            "text": "Launching AR session...\nBe aware of your surroundings.\nChildren should be supervised."
+        }
+    ]
+}

@@ -1,0 +1,68 @@
+{
+    "name": "manipulate-panel",
+    "visible": true,
+    "type": "Window",
+    "panel": true,
+    "?_ignore_": [
+        { "condition": {"type": "platform", "value": "Desktop"}, "value": false },
+        { "condition": "", "value": true }
+    ],
+    "layout": {
+        "horizontal_align": "Left",
+        "top": 55,
+        "width": 74,
+        "height": 294
+    },
+    "_style": { "show_background": false },
+    "elements": [
+        {
+            "name": "create-btn",
+            "type": "Button",
+            "toggle": true,
+            "layout": { "width": 50, "height": 50 },
+            "style": {
+                "texture": "editor-desktop-ui",
+                "texture_rect": "0 0 49 49"
+            }
+        },
+        {
+            "name": "select-btn",
+            "type": "Button",
+            "layout": { "width": 50, "height": 50 },
+            "style": {
+                "texture": "editor-desktop-ui",
+                "texture_rect": "50 0 99 49"
+            }
+        },
+        {
+            "name": "translate-btn",
+            "type": "Button",
+            "toggle": true,
+            "layout": { "width": 50, "height": 50 },
+            "style": {
+                "texture": "editor-desktop-ui",
+                "texture_rect": "100 0 149 49"
+            }
+        },
+        {
+            "name": "rotate-btn",
+            "type": "Button",
+            "toggle": true,
+            "layout": { "width": 50, "height": 50 },
+            "style": {
+                "texture": "editor-desktop-ui",
+                "texture_rect": "150 0 199 49"
+            }
+        },
+        {
+            "name": "scale-btn",
+            "type": "Button",
+            "toggle": true,
+            "layout": { "width": 50, "height": 50 },
+            "style": {
+                "texture": "editor-desktop-ui",
+                "texture_rect": "200 0 249 49"
+            }
+        }
+    ]
+}

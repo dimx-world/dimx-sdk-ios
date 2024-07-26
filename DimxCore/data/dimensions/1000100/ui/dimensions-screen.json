@@ -1,0 +1,80 @@
+{
+    "name": "dimensions-screen",
+    "type": "Window",
+    "visible": false,
+    "_modal": true,
+    "text": "Dimensions",
+    "modal": false,
+    "close_button": true,
+    "layout": {
+        "horizontal_align": "Center",
+        "top": 55,
+        "width": 400,
+        "vertical_fill": true
+    },
+    "elements": [
+        {
+            "name": "create-btn",
+            "type": "Button",
+            "text": "Create New Dimension",
+            "image_region": "40 5 80 45",
+            "layout": {
+                "top": 35,
+                "height": 50,
+                "horizontal_fill": true
+            },
+            "style": {
+                "texture": "editor-desktop-ui",
+                "texture_rect": "0 0 49 49"
+            }
+        },
+        {
+            "name": "dimensions-cont",
+            "type": "Container",
+            "_test_items": 5,
+            "layout": {
+                "top": 90,
+                "horizontal_fill": true,
+                "_vectical_fill": true
+            },
+            "item_spacing": 5,
+            "item_template": {
+                "type": "Element",
+                "layout": {
+                    "horizontal_fill": true,
+                    "height": 50
+                },
+                "elements": [
+                    {
+                        "name": "dimension-btn",
+                        "type": "Button",
+                        "text": "dim-1234",
+                        "layout": {
+                            "parent_based": true,
+                            "left": 0,
+                            "top": 0,
+                            "width": 320,
+                            "height": 50
+                        }
+                    },
+                    {
+                        "name": "delete-btn",
+                        "type": "Button",
+                        "layout": {
+                            "parent_based": true,
+                            "left": 330,
+                            "top": 0,
+                            "width": 50,
+                            "height": 50
+                        },
+                        "style": {
+                            "texture": "editor-desktop-ui",
+                            "texture_rect": "100 100 179 179"
+                        },
+                        "image_region": "5 5 45 45"
+                    }
+                ]
+            }
+        }
+    ]
+}

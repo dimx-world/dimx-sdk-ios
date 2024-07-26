@@ -1,0 +1,107 @@
+{
+    "name": "right-panel",
+    "type": "Window",
+    "panel": true,
+    "layout": {
+        "horizontal_align": "Right",
+        "top": 300,
+        "width": 170,
+        "height": 500
+    },
+    "style": {
+        "show_background": false
+    },
+    "elements": [
+        {
+            "name": "list-container",
+            "type": "Container",
+            "item_spacing": 5,
+            "layout": {
+                "horizontal_fill": true,
+                "vectical_fill": true
+            },
+            "item_template": {
+                "type": "Element",
+                "layout": {
+                    "width": 150,
+                    "height": 150
+                },
+                "elements": [
+                    {
+                        "name": "dimension-btn",
+                        "type": "Button",
+                        "layout": {
+                            "parent_based": true,
+                            "left": 0,
+                            "top": 0,
+                            "width": 150,
+                            "height": 150
+                        }
+                    },
+                    {
+                        "name": "dimension-load",
+                        "type": "LoadingIndicator",
+                        "layout": {
+                            "parent_based": true,
+                            "left": 30,
+                            "top": 30,
+                            "width": 90,
+                            "height": 90
+                        }
+                    },
+                    {
+                        "name": "dimension-active-locs-txt",
+                        "type": "Text",
+                        "text": "0",
+                        "horizontal_alignment": "Right",
+                        "visible": false,
+                        "layout": {
+                            "parent_based": true,
+                            "left": 100,
+                            "top": 120,
+                            "width": 40,
+                            "height": 20
+                        },
+                        "style": {
+                            "color": "0 1 0 1"
+                        }
+                    },
+                    {
+                        "name": "dimension-not-tracked-locs-txt",
+                        "type": "Text",
+                        "text": "0",
+                        "horizontal_alignment": "Center",
+                        "visible": false,
+                        "layout": {
+                            "parent_based": true,
+                            "left": 50,
+                            "top": 120,
+                            "width": 50,
+                            "height": 20
+                        },
+                        "style": {
+                            "color": "1 1 0 1"
+                        }
+                    },
+                    {
+                        "name": "dimension-pending-locs-txt",
+                        "type": "Text",
+                        "text": "0",
+                        "horizontal_alignment": "Left",
+                        "visible": false,
+                        "layout": {
+                            "parent_based": true,
+                            "left": 10,
+                            "top": 120,
+                            "width": 40,
+                            "height": 20
+                        },
+                        "style": {
+                            "color": "1 1 1 1"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

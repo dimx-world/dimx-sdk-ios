@@ -1,0 +1,130 @@
+{
+    "?_ignore_": [
+        { "condition": {"type": "platform", "value": "Mobile"}, "value": false },
+        { "condition": "", "value": true }
+    ],
+
+    "name": "mobile-anchors-screen",
+    "type": "Window",
+    "text": "Cloud Anchors",
+    "visible": false,
+    "modal": true,
+    "close_button": true,
+    "scrollable": true,
+    "layout": {
+        "horizontal_align": "Center",
+        "top": 400,
+        "width": 800,
+        "height": 1200
+    },
+    "style": {
+        "force_border": true
+    },
+    "elements": [
+        {
+            "name": "create-btn",
+            "type": "Button",
+            "text": "New Anchor",
+            "image_region": "100 20 200 120",
+            "layout": {
+                "height": 140,
+                "horizontal_fill": true
+            },
+            "style": {
+                "texture": "editor-mobile-ui",
+                "texture_rect": "400 300 499 399",
+                "force_border": true
+            }
+        },
+        {
+            "type": "Container",
+            "name": "anchors-cont",
+            "item_spacing": 0,
+            "_test_items": 10,
+            "layout": {
+                "_left": 10,
+                "horizontal_fill": true,
+                "vertical_fill": true
+            },
+            "item_template": {
+                "type": "Element",
+                "layout": {
+                    "horizontal_fill": true,
+                    "_height": 250,
+                    "height": 160
+                },
+                "elements": [
+                    {
+                        "name": "item-btn",
+                        "type": "Button",
+                        "toggle": true,
+                        "image_region": "0 0 150 150",
+                        "style": {
+                            "texture": "cloud-anchor-thumbnail",
+                            "force_border": true
+                        },
+                        "layout": {
+                            "parent_based": true,
+                            "left": 0,
+                            "top": 0,
+                            "horizontal_fill": true,
+                            "height": 150
+                        }
+                    },
+                    {
+                        "name": "title-txt",
+                        "type": "Text",
+                        "text": "Anchor-1234",
+                        "layout": {
+                            "parent_based": true,
+                            "left": 160,
+                            "top": 15,
+                            "horizontal_fill": true,
+                            "height": 50
+                        }
+                    },
+                    {
+                        "name": "status-txt",
+                        "type": "Text",
+                        "text": "Located",
+                        "layout": {
+                            "parent_based": true,
+                            "left": 160,
+                            "top": 70,
+                            "horizontal_fill": true,
+                            "height": 50
+                        }
+                    },
+                    {
+                        "_ignore_": true,
+                        "name": "rename-btn",
+                        "type": "Button",
+                        "text": "Rename",
+                        "visible": false,
+                        "layout": {
+                            "parent_based": true,
+                            "left": 10,
+                            "top": 160,
+                            "width": 300,
+                            "height": 80
+                        }
+                    },
+                    {
+                        "_ignore_": true,
+                        "name": "delete-btn",
+                        "type": "Button",
+                        "text": "Delete",
+                        "visible": false,
+                        "layout": {
+                            "parent_based": true,
+                            "left": 320,
+                            "top": 160,
+                            "width": 300,
+                            "height": 80
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

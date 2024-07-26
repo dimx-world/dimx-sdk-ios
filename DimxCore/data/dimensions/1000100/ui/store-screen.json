@@ -1,0 +1,115 @@
+{
+    "name": "store-screen",
+    "type": "Window",
+    "text": "Asset Store",
+    "visible": false,
+    "close_button": true,
+    "scrollable": true,
+    "layout": {
+        "horizontal_align": "Center",
+        "top": 55,
+        "width": 600,
+        "vertical_fill": true
+    },
+    "custom": {
+        "import_menu": {
+            "item_height": 20,
+            "layout": {
+                "width": 200
+            },
+            "items": [
+                { "id": "Dimension", "text": "To dimension" },
+                { "id": "Location", "text": "To location" }
+            ]
+        }
+    },
+    "elements": [
+        {
+            "name": "search-txt",
+            "type": "InputText",
+            "layout": {
+                "left": 10,
+                "top": 40,
+                "width": 450
+            }
+        },
+        {
+            "name": "search-btn",
+            "type": "Button",
+            "text": "Search",
+            "layout": {
+                "left": 470,
+                "top": 40,
+                "width": 100
+            }
+        },
+        {
+            "name": "assets-cont",
+            "type": "Container",
+            "_test_items": 5,
+            "layout": {
+                "left": 10,
+                "top": 75,
+                "horizontal_fill": true,
+                "vectical_fill": true
+            },
+            "item_spacing": 5,
+            "item_template": {
+                "type": "Element",
+                "layout": {
+                    "horizontal_fill": true,
+                    "height": 100
+                },
+                "elements": [
+                    {
+                        "name": "thumbnail-img",
+                        "type": "Image",
+                        "layout": {
+                            "parent_based": true,
+                            "left": 0,
+                            "top": 0,
+                            "width": 100,
+                            "height": 100
+                        },
+                        "style": {
+                            "texture": "model-thumbnail"
+                        }
+                    },
+                    {
+                        "name": "title-txt",
+                        "type": "Text",
+                        "text": "Model Name",
+                        "layout": {
+                            "parent_based": true,
+                            "left": 110,
+                            "top": 10,
+                            "width": 300
+                        }
+                    },
+                    {
+                        "name": "creator-txt",
+                        "type": "Text",
+                        "text": "Creator: sergei",
+                        "layout": {
+                            "parent_based": true,
+                            "left": 110,
+                            "top": 30,
+                            "width": 300
+                        }
+                    },
+                    {
+                        "name": "import-btn",
+                        "type": "Button",
+                        "text": "Import",
+                        "layout": {
+                            "parent_based": true,
+                            "left": 460,
+                            "top": 10,
+                            "width": 100
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

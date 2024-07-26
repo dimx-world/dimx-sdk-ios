@@ -1,0 +1,87 @@
+{
+    "name": "pick-texture-screen",
+    "type": "Window",
+    "text": "Select Texture",
+    "visible": false,
+    "modal": true,
+    "close_button": true,
+    "layout": {
+        "horizontal_align": "Center",
+        "top": 55,
+        "width": 850,
+        "vertical_fill": true
+    },
+    "elements": [
+        {
+            "name": "scope-tab-bar",
+            "type": "TabBar",
+            "elements": [
+                {
+                    "name": "scope-tab-dimension",
+                    "type": "TabBarItem",
+                    "text": "  Dimension  ",
+                    "elements": []
+                },
+                {
+                    "name": "scope-tab-location",
+                    "type": "TabBarItem",
+                    "text": "  Location  ",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "objects-list",
+            "type": "ListBox",
+            "layout": {
+                "left": 10,
+                "top": 80,
+                "width": 350,
+                "vertical_fill": true
+            }
+        },
+        {
+            "name": "object-name-txt",
+            "type": "Text",
+            "text": "Texture: name-of-texture",
+            "layout": {
+                "left": 370,
+                "top": 85,
+                "width": 350
+            }
+        },
+        {
+            "name": "select-btn",
+            "type": "Button",
+            "text": "Select",
+            "layout": {
+                "_left": 370,
+                "horizontal_align": "Right",
+                "top": 80,
+                "width": 200
+            }
+        },
+        {
+            "name": "cancel-btn",
+            "type": "Button",
+            "text": "Cancel",
+            "layout": {
+                "_left": 580,
+                "horizontal_align": "Right",
+                "top": 120,
+                "width": 200
+            }
+        },
+        {
+            "name": "texture-preview",
+            "type": "Image",
+            "texture_scale": "Fit",
+            "layout": {
+                "left": 370,
+                "top": 155,
+                "horizontal_fill": true,
+                "vertical_fill": true
+            }
+        }
+    ]
+}

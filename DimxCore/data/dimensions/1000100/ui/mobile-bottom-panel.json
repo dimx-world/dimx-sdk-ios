@@ -1,0 +1,68 @@
+{
+    "?_ignore_": [
+        { "condition": {"type": "platform", "value": "Mobile"}, "value": false },
+        { "condition": "", "value": true }
+    ],
+
+    "name": "mobile-bottom-panel",
+    "type": "Window",
+    "panel": true,
+    "layout": {
+        "left": 0,
+        "vertical_align": "Bottom",
+        "horizontal_align": "Center",
+        "horizontal_fill": true,
+        "height": 170
+    },
+    "style": {
+        "show_background": false
+    },
+    "elements": [
+        {
+            "name": "manipulate-btn",
+            "type": "Button",
+            "toggle": false,
+            "layout": {
+                "offset_x": 50,
+                "horizontal_align": "Left",
+                "vertical_align": "Bottom",
+                "width": 150,
+                "height": 150
+            },
+            "style": {
+                "texture": "editor-mobile-ui",
+                "texture_rect": "200 0 299 99"
+            }
+        },
+        {
+            "name": "props-btn",
+            "type": "Button",
+            "toggle": false,
+            "layout": {
+                "horizontal_align": "Center",
+                "vertical_align": "Bottom",
+                "width": 150,
+                "height": 150
+            },
+            "style": {
+                "texture": "editor-mobile-ui",
+                "texture_rect": "300 100 399 199"
+            }
+        },
+        {
+            "name": "return-btn",
+            "type": "Button",
+            "layout": {
+                "horizontal_align": "Right",
+                "offset_x": 50,
+                "vertical_align": "Bottom",
+                "width": 150,
+                "height": 150
+            },
+            "style": {
+                "texture": "editor-mobile-ui",
+                "texture_rect": "100 0 199 99"
+            }
+        }
+    ]
+}

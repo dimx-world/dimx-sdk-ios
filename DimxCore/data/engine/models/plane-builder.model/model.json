@@ -1,0 +1,10 @@
+{
+    "name": "plane-builder",
+    "builder": {
+        "type": "Plane",
+        "plane": "XY",
+        "width": 0.3,
+        "height": 0.3,
+        "origin": "Center"
+    }
+}

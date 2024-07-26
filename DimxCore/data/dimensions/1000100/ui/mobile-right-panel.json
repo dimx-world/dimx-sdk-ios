@@ -1,0 +1,59 @@
+{
+    "?_ignore_": [
+        { "condition": {"type": "platform", "value": "Mobile"}, "value": false },
+        { "condition": "", "value": true }
+    ],
+
+    "name": "mobile-right-panel",
+    "type": "Window",
+    "panel": true,
+    "layout": {
+        "horizontal_align": "Right",
+        "vertical_align": "Center",
+        "width": 200,
+        "height": 700
+    },
+    "style": {
+        "show_background": false
+    },
+    "elements": [
+        {
+            "name": "anchors-btn",
+            "type": "Button",
+            "layout": {
+                "width": 150,
+                "height": 150
+            },
+            "style": {
+                "texture": "editor-mobile-ui",
+                "texture_rect": "400 200 499 299"
+            }
+        },
+        {
+            "name": "select-btn",
+            "type": "Button",
+            "layout": {
+                "offset_y": 100,
+                "width": 150,
+                "height": 150
+            },
+            "style": {
+                "texture": "editor-mobile-ui",
+                "texture_rect": "0 0 99 99"
+            }
+        },
+        {
+            "name": "create-btn",
+            "type": "Button",
+            "layout": {
+                "offset_y": 100,
+                "width": 150,
+                "height": 150
+            },
+            "style": {
+                "texture": "editor-mobile-ui",
+                "texture_rect": "400 300 499 399"
+            }
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "root": {
+        "elements": [
+            {
+                "name": "locations-screen",
+                "type": "Window",
+                "visible": false,
+                "text": "Locations",
+                "region": { "left": 200, "top": 200, "right": "right - 200", "bottom": "bottom - 200" },
+                "elements": [
+                    {
+                        "name": "locations-list",
+                        "type": "ListBox",
+                        "region": { "left": 10, "top": 40, "width": 400, "bottom": "bottom -10" }
+                    },
+                    {
+                        "name": "enter-location",
+                        "type": "Button",
+                        "region": { "left": 410, "top": 40, "width": 150, "height": 70 },
+                        "text": "Enter"
+                    },
+                    {
+                        "name": "exit-location",
+                        "type": "Button",
+                        "region": { "left": 410, "top": 120, "width": 150, "height": 70 },
+                        "text": "Exit"
+                    },
+                    {
+                        "name": "exit-dimension",
+                        "type": "Button",
+                        "region": { "left": 410, "top": 220, "width": 150, "height": 150 },
+                        "text": "Exit dimension"
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "name": "notification-panel",
+    "visible": true,
+    "type": "Window",
+    "panel": true,
+    "receive_input": false,
+    "layout": { "left": 0, "top": 50, "horizontal_fill": true, "height": 500 },
+    "style": {
+        "show_background": false
+    },
+    "elements": [
+        {
+            "name": "list-container",
+            "type": "Container",
+            "item_spacing": 5,
+            "_test_items": 2,
+            "layout": {
+                "top": 0,
+                "horizontal_fill": true,
+                "vectical_fill": true
+            },
+            "item_template": {
+                "type": "Text",
+                "text": "Please login to collect discounts",
+                "frame": true,
+                "wrap_text": true,
+                "layout": {
+                    "horizontal_fill": true,
+                    "height": 50
+                },
+                "style": {
+                    "color": "0 0 0 1",
+                    "background_color": "0.75 0.9 1 1",
+                    "frame_rounding": 10
+                }
+            }
+        }
+    ]
+}

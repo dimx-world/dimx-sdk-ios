@@ -1,0 +1,225 @@
+{
+    "?_ignore_": [
+        { "condition": {"type": "platform", "value": "Desktop"}, "value": false },
+        { "condition": "", "value": true }
+    ],
+
+    "name": "create-panel",
+    "visible": false,
+    "type": "Window",
+    "panel": true,
+    "layout": {
+        "horizontal_align": "Left",
+        "top": 55,
+        "width": 250,
+        "vertical_fill": true
+    },
+
+    "elements": [
+        {
+            "name": "standard-frame",
+            "type": "CollapseFrame",
+            "text": "Standard Models",
+            "elements": [
+                {
+                    "type": "Container",
+                    "name": "standard-cont",
+                    "item_spacing": 5,
+                    "item_template": {
+                        "type": "Button",
+                        "name": "row-btn",
+                        "text": "box",
+                        "image_region": "0 0 50 50",
+                        "align_text_left": true,
+                        "text_padding": 50,
+                        "layout": {
+                            "width": 230,
+                            "height": 50
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "dimension-models-frame",
+            "type": "CollapseFrame",
+            "text": "Dimension Models",
+            "elements": [
+                {
+                    "type": "Container",
+                    "name": "dimension-models-cont",
+                    "item_spacing": 5,
+                    "item_template": {
+                        "type": "Button",
+                        "name": "row-btn",
+                        "text": "model",
+                        "image_region": "0 0 50 50",
+                        "align_text_left": true,
+                        "text_padding": 50,
+                        "layout": {
+                            "width": 230,
+                            "height": 50
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "location-models-frame",
+            "type": "CollapseFrame",
+            "text": "Location Models",
+            "elements": [
+                {
+                    "type": "Container",
+                    "name": "location-models-cont",
+                    "item_spacing": 5,
+                    "item_template": {
+                        "type": "Button",
+                        "name": "row-btn",
+                        "text": "model",
+                        "image_region": "0 0 50 50",
+                        "align_text_left": true,
+                        "text_padding": 50,
+                        "layout": {
+                            "width": 230,
+                            "height": 50
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "multimedia-frame",
+            "type": "CollapseFrame",
+            "text": "Multimedia",
+            "elements": [
+                {
+                    "name": "video-btn",
+                    "type": "Button",
+                    "text": "Video",
+                    "image_region": "0 0 50 50",
+                    "align_text_left": true,
+                    "text_padding": 50,
+                    "layout": {
+                        "height": 50,
+                        "horizontal_align": "Left",
+                        "horizontal_fill": true
+                    },
+                    "style": {
+                        "texture": "video-thumbnail"
+                    }
+                },
+                {
+                    "name": "audio-btn",
+                    "type": "Button",
+                    "text": "Audio",
+                    "image_region": "0 0 50 50",
+                    "align_text_left": true,
+                    "text_padding": 50,
+                    "layout": {
+                        "height": 50,
+                        "horizontal_align": "Left",
+                        "horizontal_fill": true
+                    },
+                    "style": {
+                        "texture": "audio-thumbnail"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "markers-frame",
+            "type": "CollapseFrame",
+            "text": "Markers",
+            "elements": [
+                {
+                    "name": "vertical-marker-btn",
+                    "type": "Button",
+                    "text": "Vertical",
+                    "image_region": "0 0 50 50",
+                    "align_text_left": true,
+                    "text_padding": 50,
+                    "layout": {
+                        "height": 50,
+                        "horizontal_align": "Left",
+                        "horizontal_fill": true
+                    },
+                    "style": {
+                        "texture": "vertical-marker-thumb"
+                    }
+                },
+                {
+                    "name": "horizontal-marker-btn",
+                    "type": "Button",
+                    "text": "Horizontal",
+                    "image_region": "0 0 50 50",
+                    "align_text_left": true,
+                    "text_padding": 50,
+                    "layout": {
+                        "height": 50,
+                        "horizontal_align": "Left",
+                        "horizontal_fill": true
+                    },
+                    "style": {
+                        "texture": "horizontal-marker-thumb"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "helpers-frame",
+            "type": "CollapseFrame",
+            "text": "Helpers",
+            "elements": [
+                {
+                    "name": "dummy-btn",
+                    "type": "Button",
+                    "text": "Dummy",
+                    "image_region": "0 0 50 50",
+                    "align_text_left": true,
+                    "text_padding": 50,
+                    "layout": {
+                        "height": 50,
+                        "horizontal_align": "Left",
+                        "horizontal_fill": true
+                    },
+                    "style": {
+                        "texture": "dummy-thumbnail"
+                    }
+                },
+                {
+                    "name": "sticky-dummy-floor-btn",
+                    "type": "Button",
+                    "text": "Floor Sticky Dummy",
+                    "image_region": "0 0 50 50",
+                    "align_text_left": true,
+                    "text_padding": 50,
+                    "layout": {
+                        "height": 50,
+                        "horizontal_align": "Left",
+                        "horizontal_fill": true
+                    },
+                    "style": {
+                        "texture": "sticky-dummy-floor-thumbnail"
+                    }
+                },
+                {
+                    "name": "sticky-dummy-wall-btn",
+                    "type": "Button",
+                    "text": "Wall Sticky Dummy",
+                    "image_region": "0 0 50 50",
+                    "align_text_left": true,
+                    "text_padding": 50,
+                    "layout": {
+                        "height": 50,
+                        "horizontal_align": "Left",
+                        "horizontal_fill": true
+                    },
+                    "style": {
+                        "texture": "sticky-dummy-wall-thumbnail"
+                    }
+                }
+            ]
+        }
+    ]
+}

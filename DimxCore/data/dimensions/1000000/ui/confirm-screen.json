@@ -1,0 +1,60 @@
+ {
+    "name": "confirm-screen",
+    "type": "Window",
+    "visible": false,
+    "close_button": true,
+    "?layout": [
+        { "condition": {"type": "platform", "value": "Mobile"},
+            "value": {
+                "width": 800,
+                "height": 500,
+                "horizontal_align": "Center",
+                "vertical_align": "Center"
+            }
+        },
+        { "condition": "",
+            "value": {
+                "width": 400,
+                "height": 150,
+                "horizontal_align": "Center",
+                "vertical_align": "Center"
+            }
+        }
+    ],
+    "modal": true,
+    "text": "Confirm",
+    "elements": [
+        {
+            "name": "details",
+            "type": "Text",
+            "wrap_text": true,
+            "layout": {"horizontal_fill": true}
+        },
+        {
+            "name": "ok-btn",
+            "type": "Button",
+            "text": "OK",
+            "layout": {
+                "left": 45,
+                "?top": [
+                    { "condition": {"type": "platform", "value": "Mobile"}, "value": 350 },
+                    { "condition": "", "value": 110 }
+                ],
+                "width": 150
+            }
+        },
+        {
+            "name": "cancel-btn",
+            "type": "Button",
+            "text": "Cancel",
+            "layout": {
+                "left": 205,
+                "?top": [
+                    { "condition": {"type": "platform", "value": "Mobile"}, "value": 350 },
+                    { "condition": "", "value": 110 }
+                ],
+                "width": 150
+            }
+        }
+    ]
+}

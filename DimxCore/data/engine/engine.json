@@ -1,0 +1,205 @@
+{
+    "engine": {},
+
+    "threads": {
+        "max_threads": 10
+    },
+
+    "resource_interface": {
+        "update_interval_sec": 1.0,
+        "request_timeout_sec": 5.0,
+        "local": {
+            "data_path": ""
+        },
+        "remote": {
+            "files_host": "https://files.dimx.world",
+            "?ws_connection": [
+                { "condition": {"type": "platform", "value": "Web"}, "value": "wss://api.dimx.world:8001" },
+                { "condition": "", "value": "ws://api.dimx.world:8000" }
+            ]
+        },
+        "cache": {
+            "?enabled": [
+                { "condition": {"type": "platform", "value": "Web"}, "value": false },
+                { "condition": "", "value": true }
+            ]
+        }
+    },
+
+
+    "?display": [
+        {
+            "condition": {"type": "platform", "value": "Desktop"},
+            "value": {"width": 1280, "height": 720}
+        },
+        {
+            "condition": {"type": "platform", "value": "Mobile"},
+            "value": {"width": 432, "height": 888}
+        },
+        {
+            "condition": {"type": "platform", "value": "MagicLeap"},
+            "value": {"width": 1280, "height": 960}
+        },
+    ],
+
+    "device_ar": {
+    },
+
+    "cloud_anchors": {
+    },
+
+    "device_camera": {
+        "enabled": true,
+        "world_entity": "cam-plane",
+        "texture_width": 1088,
+        "texture_height": 1088
+    },
+
+    "account": {
+    },
+
+    "geolocation": {
+        "significant_dist": 5.0
+    },
+
+    "analytics": {
+        "enabled": true
+    },
+
+    "multimedia": {
+    },
+
+    "render": {
+        "clear_color": "0.1 0.1 0.1 0.0",
+        "enable_back_face_culling": true,
+        "front_face_vertex_order": "CounterClockwise",
+        "shadows_enabled": true,
+        "depth": {
+            "enabled": false,
+            "texture": "depth-map-tex"
+        },
+        "debug_lines_mesh": {
+            "type": "holder",
+            "dynamic": true,
+            "num_verts": 1000,
+            "vertex_attribs": ["vPosition", "vColor"],
+            "primitive_type": "Lines",
+            "material": { "base": "Debug" }
+        },
+        "debug_polygons_mesh": {
+            "type": "holder",
+            "dynamic": true,
+            "num_verts": 60000,
+            "vertex_attribs": ["vPosition", "vColor"],
+            "primitive_type": "Triangles",
+            "material": { "base": "Debug" }
+        }
+    },
+
+    "audio": {
+
+    },
+
+    "ar_core": {
+    },
+
+    "tracking": {
+        "enabled": true,
+        "max_targets": 5,
+        "mode": "Fixed", // Manual
+        "world_origin": "1 -1 1"
+    },
+
+    "input": {
+        //    "key_bindings": "@key_bindings.json",
+    },
+
+    "camera_ctrl": {
+        "move_speed": 10.0,
+        "rotate_speed": 0.1
+    },
+
+    "camera": {
+        "position": "1 1 2",
+        //"position": "-1 2 0",
+        "target": "0 0 0",
+        "fov": 45.0,
+        "minz": 0.1,
+        "?maxz": [
+            {
+                "condition": {"type": "platform", "value": "XR"},
+                "value": 50
+            },
+            { "condition": "", "value": 100 }
+        ]
+    },
+
+    "physics": {
+        "debug_mode": false,
+        "enable_pvd": false
+    },
+
+    "world": {
+        "app_dimension": "1000000",
+        "editor_dimension": "1000100",
+        "public_dimension": "1000200",
+        "scene": {
+            "skybox": "sky",
+            "lighting": {
+                "type": "Directional",
+                "position": "0 3 0",
+                "direction": "0 -1 -0.01",
+
+                "shadow_enabled": false,
+                "shadow_map_size": 512,
+                "shadow_softness": 2.0,
+                "shadow_darkness": 0.7,
+                "shadow_decay_dist": 1.7,
+
+                "volume_width": 3,
+                "volume_height": 3,
+                "volume_near": 0.1,
+                "volume_far": 10,
+
+                "ambient_color": "0.4 0.4 0.4",
+                "diffuse_color": "1 1 1",
+                "specular_color": "0.1 0.1 0.1"
+            }
+        }
+    },
+
+    "imgui": {
+        "fonts": {
+            "default": {
+                "name": "arial",
+                "?size": [
+                    { "condition": { "type": "platform", "value": "Mobile"}, "value": 48 },
+                    { "condition": "", "value": 14 }
+                ],
+            },
+            "files" : {
+                "arial": "fonts/arial.ttf"
+            }
+        },
+        "render_mesh": {
+            "type": "holder",
+            "dynamic": true,
+            "num_verts": 10000, // initial size
+            "vertex_attribs": ["vPosition2", "vTexCoord", "vColorUB"],
+            "primitive_type": "Triangles",
+            "index_type": "UInt16",
+            "num_inds": 10000, // initial size
+            "material": { "base": "ImGui" }
+        },
+    },
+
+    "materials": {
+        "public_list": [
+            "Standard"
+        ]
+    },
+
+    "ui" : "@ui/ui.json",
+    "editor_models": "@models/editor_models.json",
+    "aliases": "@aliases.json"
+}

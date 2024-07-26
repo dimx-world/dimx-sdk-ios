@@ -1,0 +1,8 @@
+{
+    "name": "grid",
+    "builder": {
+        "type": "Grid",
+        "cell_size": 0.1,
+        "num_cells": 10
+    }
+}

@@ -1,0 +1,169 @@
+{
+    "?_ignore_": [
+        { "condition": {"type": "platform", "value": "Mobile"}, "value": false },
+        { "condition": "", "value": true }
+    ],
+
+    "name": "mobile-create-screen",
+    "type": "Window",
+    "text": "Create New Object",
+    "visible": false,
+    "modal": true,
+    "close_button": true,
+    "scrollable": true,
+    "layout": {
+        "horizontal_fill": true,
+        "vertical_fill": true,
+        "top": 200
+    },
+    "elements": [
+        {
+            "name": "standard-frame",
+            "type": "CollapseFrame",
+            "text": "Standard Models",
+            "elements": [
+                {
+                    "type": "Container",
+                    "name": "standard-cont",
+                    "item_spacing": 5,
+                    "item_template": {
+                        "type": "Button",
+                        "name": "row-btn",
+                        "text": "box",
+                        "image_region": "0 0 150 150",
+                        "align_text_left": true,
+                        "text_padding": 180,
+                        "layout": {
+                            "horizontal_fill": true,
+                            "height": 150
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "dimension-models-frame",
+            "type": "CollapseFrame",
+            "text": "Dimension Models",
+            "elements": [
+                {
+                    "type": "Container",
+                    "name": "dimension-models-cont",
+                    "item_spacing": 5,
+                    "item_template": {
+                        "type": "Button",
+                        "name": "row-btn",
+                        "text": "model",
+                        "image_region": "0 0 150 150",
+                        "align_text_left": true,
+                        "text_padding": 180,
+                        "layout": {
+                            "horizontal_fill": true,
+                            "height": 150
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "location-models-frame",
+            "type": "CollapseFrame",
+            "text": "Location Models",
+            "elements": [
+                {
+                    "type": "Container",
+                    "name": "location-models-cont",
+                    "item_spacing": 5,
+                    "item_template": {
+                        "type": "Button",
+                        "name": "row-btn",
+                        "text": "model",
+                        "image_region": "0 0 150 150",
+                        "align_text_left": true,
+                        "text_padding": 180,
+                        "layout": {
+                            "horizontal_fill": true,
+                            "height": 150
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "helpers-frame",
+            "type": "CollapseFrame",
+            "text": "Helpers",
+            "elements": [
+                {
+                    "name": "dummy-btn",
+                    "type": "Button",
+                    "text": "Dummy",
+                    "image_region": "0 0 150 150",
+                    "align_text_left": true,
+                    "text_padding": 180,
+                    "layout": {
+                        "height": 150,
+                        "horizontal_fill": true
+                    },
+                    "style": {
+                        "texture": "dummy-thumbnail"
+                    }
+                },
+                {
+                    "name": "sticky-dummy-floor-btn",
+                    "type": "Button",
+                    "text": "Floor Sticky Dummy",
+                    "image_region": "0 0 150 150",
+                    "align_text_left": true,
+                    "text_padding": 180,
+                    "layout": {
+                        "height": 150,
+                        "horizontal_fill": true
+                    },
+                    "style": {
+                        "texture": "sticky-dummy-floor-thumbnail"
+                    }
+                },
+                {
+                    "name": "sticky-dummy-wall-btn",
+                    "type": "Button",
+                    "text": "Wall Sticky Dummy",
+                    "image_region": "0 0 150 150",
+                    "align_text_left": true,
+                    "text_padding": 180,
+                    "layout": {
+                        "height": 150,
+                        "horizontal_fill": true
+                    },
+                    "style": {
+                        "texture": "sticky-dummy-wall-thumbnail"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "asset-store-frame",
+            "type": "CollapseFrame",
+            "text": "Asset Store",
+            "elements": [
+                {
+                    "type": "Container",
+                    "name": "asset-store-cont",
+                    "item_spacing": 5,
+                    "item_template": {
+                        "type": "Button",
+                        "name": "row-btn",
+                        "text": "model",
+                        "image_region": "0 0 150 150",
+                        "align_text_left": true,
+                        "text_padding": 180,
+                        "layout": {
+                            "horizontal_fill": true,
+                            "height": 150
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

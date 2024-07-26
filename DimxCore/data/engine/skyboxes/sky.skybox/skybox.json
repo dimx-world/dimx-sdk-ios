@@ -1,0 +1,11 @@
+{
+    "irradiance": "sky_irradiance_4.cube.jpg",
+    "radiance": [
+        "sky_radiance_0.cube.jpg",
+        "sky_radiance_1.cube.jpg",
+        "sky_radiance_2.cube.jpg",
+        "sky_radiance_3.cube.jpg",
+        "sky_radiance_4.cube.jpg",
+        "sky_radiance_5.cube.jpg"
+    ]
+}

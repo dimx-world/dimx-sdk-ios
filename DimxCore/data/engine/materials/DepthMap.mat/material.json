@@ -1,0 +1,6 @@
+{
+    "gl_shaders": {
+        "vertex": "materials/gl_shaders/standard.vs",
+        "fragment": "materials/gl_shaders/depth_map.fs"
+    }
+}

@@ -1,0 +1,55 @@
+{
+    "name": "login-screen",
+    "type": "Window",
+    "visible": false,
+    "modal": true,
+    "text": "Login",
+    "layout": {
+        "horizontal_align": "Center",
+        "top": 55,
+        "width": 400,
+        "height": 300
+    },
+    "elements": [
+        {
+            "name": "username-label",
+            "type": "Text",
+            "text": "Username",
+            "layout": { "horizontal_fill": true }
+        },
+        {
+            "name": "username-input",
+            "type": "InputText",
+            "layout": { "horizontal_fill": true }
+        },
+        {
+            "name": "password-label",
+            "type": "Text",
+            "text": "Password",
+            "layout": { "horizontal_fill": true }
+        },
+        {
+            "name": "password-input",
+            "type": "InputText",
+            "password": true,
+            "layout": { "horizontal_fill": true }
+        },
+        {
+            "name": "message-text",
+            "type": "Text",
+            "layout": { "horizontal_fill": true }
+        },
+        {
+            "name": "login-btn",
+            "type": "Button",
+            "text": "Login",
+            "layout": { "horizontal_fill": true }
+        },
+        {
+            "name": "cancel-btn",
+            "type": "Button",
+            "text": "Cancel",
+            "layout": { "horizontal_fill": true }
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "root": {
+        "elements": [
+            "@top-panel.json",
+            "@info-panel.json",
+            "@properties-screen.json",
+            "@dimensions-screen.json",
+            "@locations-screen.json",
+            "@objects-screen.json",
+            "@anchor-placement-screen.json",
+            "@object-placement-screen.json",
+            "@manipulate-panel.json",
+            "@create-panel.json",
+            "@style-editor-screen.json",
+            "@assets-screen.json",
+            "@pick-texture-screen.json",
+            "@pick-material-screen.json",
+            "@pick-skybox-screen.json",
+            "@pick-video-screen.json",
+            "@pick-audio-screen.json",
+            "@store-screen.json",
+            "@mobile-bottom-panel.json",
+            "@mobile-right-panel.json",
+            "@mobile-anchors-screen.json",
+            "@mobile-properties-screen.json",
+            "@mobile-create-screen.json",
+            "@mobile-top-panel.json"
+        ]
+    }
+}

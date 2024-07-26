@@ -1,0 +1,32 @@
+ {
+    "name": "alert-screen",
+    "type": "Window",
+    "visible": false,
+    "close_button": true,
+    "layout": {
+        "width": 400,
+        "height": 150,
+        "horizontal_align": "Center",
+        "vertical_align": "Center"
+    },
+    "modal": true,
+    "text": "Dialog",
+    "elements": [
+        {
+            "name": "details",
+            "type": "Text",
+            "wrap_text": true,
+            "layout": {"horizontal_fill": true}
+        },
+        {
+            "name": "ok-btn",
+            "type": "Button",
+            "text": "OK",
+            "layout": {
+                "horizontal_align": "Center",
+                "top": 110,
+                "width": 150
+            }
+        }
+    ]
+}

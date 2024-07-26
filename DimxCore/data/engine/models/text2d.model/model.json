@@ -1,0 +1,7 @@
+{
+    "name": "text2d",
+    "builder": {
+        "type": "Text2D",
+        "text": "Text"
+    }
+}

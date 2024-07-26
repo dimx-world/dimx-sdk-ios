@@ -1,0 +1,35 @@
+{
+    "?_ignore_": [
+        { "condition": {"type": "platform", "value": "Desktop"}, "value": true },
+        { "condition": "", "value": false }
+    ],
+
+    "name": "mobile-developer-panel",
+    "type": "Window",
+    "panel": true,
+    "visible": false,
+    "layout": {
+        "horizontal_align": "Right",
+        "top": 100,
+        "width": 180,
+        "height": 180
+    },
+    "style": {
+        "show_background": false
+    },
+    "elements": [
+        {
+            "name": "developer-btn",
+            "type": "Button",
+            "layout": {
+                "horizontal_align": "Right",
+                "width": 150,
+                "height": 150
+            },
+            "style": {
+                "texture": "mobile-ui",
+                "texture_rect": "0 0 99 99"
+            }
+        }
+    ]
+}

@@ -1,0 +1,88 @@
+{
+    "gl_shaders": {
+        "vertex": "materials/gl_shaders/standard.vs",
+        "fragment": "materials/gl_shaders/standard.fs"
+    },
+    "parameters": {
+        "base_color": {
+            "type": "Vec4",
+            "default_value": "1 1 1 1",
+            "gl_uniform": "fBaseColor",
+            "editable": true
+        },
+        "base_color_factor": {
+            "type": "Float",
+            "default_value": 0,
+            "gl_uniform": "fBaseColorFactor",
+            "editable": true
+        },
+        "base_color_map": {
+            "type": "Texture",
+            "default_value": "default",
+            "gl_uniform": "fBaseColorMap",
+            "gl_fragment_switch": "MP_fBaseColorMap",
+            "editable": true
+        },
+
+        "normal_map": {
+            "type": "Texture",
+            "default_value": "",
+            "gl_uniform": "fNormalMap",
+            "gl_fragment_switch": "MP_fNormalMap",
+            "editable": true
+        },
+
+        "metalness": {
+            "type": "Float",
+            "default_value": 0.0,
+            "gl_uniform": "fMetalness",
+            "editable": true
+        },
+
+        "metalness_map": {
+            "type": "Texture",
+            "default_value": "",
+            "gl_uniform": "fMetalnessMap",
+            "gl_fragment_switch": "MP_fMetalnessMap",
+            "editable": true
+        },
+
+        "roughness": {
+            "type": "Float",
+            "default_value": 1.0,
+            "gl_uniform": "fRoughness",
+            "editable": true
+        },
+        
+        "roughness_map": {
+            "type": "Texture",
+            "default_value": "",
+            "gl_uniform": "fRoughnessMap",
+            "gl_fragment_switch": "MP_fRoughnessMap",
+            "editable": true
+        },
+        "flat": {
+            "type": "Bool",
+            "default_value": false,
+            "gl_uniform": "fFlat",
+            "editable": true
+        },
+        "receive_shadows": {
+            "type": "Bool",
+            "default_value": false,
+            "gl_uniform": "fReceiveShadows"
+        },
+        "add_color": {
+            "type": "Vec4",
+            "default_value": "0 0 0 0",
+            "gl_uniform": "fAddColor",
+            "editable": false
+        },
+        "mult_color": {
+            "type": "Vec4",
+            "default_value": "1 1 1 1",
+            "gl_uniform": "fMultColor",
+            "editable": false
+        }
+    }
+}

@@ -1,0 +1,55 @@
+{
+    "?_ignore_": [
+        { "condition": {"type": "platform", "value": "Mobile"}, "value": false },
+        { "condition": {"type": "platform", "value": "MagicLeap"}, "value": false },
+        { "condition": "", "value": true }
+    ],
+
+    "name": "mobile-developer-screen",
+    "type": "Window",
+    "visible": false,
+    "close_button": true,
+    "scrollable": true,
+    "text": "Developer Space",
+    "layout": {
+        "horizontal_align": "Center",
+        "top": 200,
+        "width": 900,
+        "vertical_fill": true
+    },
+    "style": {
+        "force_border": true
+    },
+    "elements": [
+        {
+            "name": "logger-btn",
+            "type": "Button",
+            "text": "Show logs",
+            "layout": {
+                "horizontal_fill": true,
+                "_height": 150
+            },
+            "_style": {
+                "texture": "mobile-ui",
+                "texture_rect": "0 0 99 99"
+            }
+        },
+        {
+            "name": "world-frame",
+            "type": "CollapseFrame",
+            "text": "World Info",
+            "elements": [
+                {
+                    "name": "world-txt",
+                    "type": "Text",
+                    "multiline": true,
+                    "wrap_text": true,
+                    "layout": {
+                        "horizontal_fill": true,
+                        "vertical_fill": true
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,175 @@
+{
+    "name": "objects-screen",
+    "type": "Window",
+    "text": "Select Object",
+    "visible": false,
+    "modal": true,
+    "close_button": true,
+    "scrollable": true,
+    "?layout": [
+        {
+            "condition": {"type": "platform", "value": "Mobile"},
+            "value": {
+                "horizontal_fill": true,
+                "top": 200,
+                "vertical_fill": true
+            }
+        },
+        {
+            "condition": "",
+            "value": {
+                "horizontal_align": "Center",
+                "top": 55,
+                "width": 460,
+                "vertical_fill": true
+            }
+        }
+    ],
+    "elements": [
+        {
+            "name": "all-filter-btn",
+            "type": "Button",
+            "text": "All",
+            "toggle": true,
+            "pushed": true,
+            "?visible": [
+                { "condition": {"type": "platform", "value": "Mobile"}, "value": false },
+                { "condition": "", "value": true }
+            ],
+            "layout": {
+                "left": 20,
+                "top": 35,
+                "width": 50,
+                "height": 50
+            },
+            "style": {
+                "frame_rounding": 0
+            }
+        },
+        {
+            "name": "objects-filter-btn",
+            "type": "Button",
+            "text": "Objects",
+            "toggle": true,
+            "?visible": [
+                { "condition": {"type": "platform", "value": "Mobile"}, "value": false },
+                { "condition": "", "value": true }
+            ],
+            "layout": {
+                "left": 70,
+                "top": 35,
+                "width": 120,
+                "height": 50
+            },
+            "style": {
+                "frame_rounding": 0
+            }
+        },
+        {
+            "name": "markers-filter-btn",
+            "type": "Button",
+            "text": "Markers",
+            "toggle": true,
+            "?visible": [
+                { "condition": {"type": "platform", "value": "Mobile"}, "value": false },
+                { "condition": "", "value": true }
+            ],
+            "layout": {
+                "left": 190,
+                "top": 35,
+                "width": 120,
+                "height": 50
+            },
+            "style": {
+                "frame_rounding": 0
+            }
+        },
+        {
+            "name": "anchors-filter-btn",
+            "type": "Button",
+            "text": "CloudAnchors",
+            "toggle": true,
+            "?visible": [
+                { "condition": {"type": "platform", "value": "Mobile"}, "value": false },
+                { "condition": "", "value": true }
+            ],
+            "layout": {
+                "left": 310,
+                "top": 35,
+                "width": 120,
+                "height": 50
+            },
+            "style": {
+                "frame_rounding": 0
+            }
+        },
+        {
+            "type": "Container",
+            "name": "objects-cont",
+            "item_spacing": 5,
+            "_test_items": 10,
+            "layout": {
+                "_top": 90,
+                "_left": 10,
+                "horizontal_fill": true,
+                "vertical_fill": true
+            },
+            "?layout": [
+                {
+                    "condition": {"type": "platform", "value": "Mobile"},
+                    "value": {
+                        "horizontal_fill": true,
+                        "vertical_fill": true
+                    }
+                },
+                {
+                    "condition": "",
+                    "value": {
+                        "top": 90,
+                        "left": 10,
+                        "horizontal_fill": true,
+                        "vertical_fill": true
+                    }
+                }
+            ],
+            "?item_template": [
+                {
+                    "condition": {"type": "platform", "value": "Mobile"},
+                    "value": {
+                        "type": "Button",
+                        "name": "row-btn",
+                        "text": "object",
+                        "image_region": "0 0 150 150",
+                        "align_text_left": true,
+                        "text_padding": 170,
+                        "style": {
+                            "texture": "model-thumbnail"
+                        },
+                        "layout": {
+                            "horizontal_fill": true,
+                            "height": 150
+                        }
+                    }
+                },
+                {
+                    "condition": "",
+                    "value": {
+                        "type": "Button",
+                        "name": "row-btn",
+                        "text": "object",
+                        "image_region": "0 0 50 50",
+                        "align_text_left": true,
+                        "text_padding": 50,
+                        "style": {
+                            "texture": "model-thumbnail"
+                        },
+                        "layout": {
+                            "horizontal_fill": true,
+                            "height": 50
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

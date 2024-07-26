@@ -1,0 +1,20 @@
+{
+    "name": "style-editor-screen",
+    "type": "Window",
+    "visible": false,
+    "scrollable": true,
+    "text": "Styles Editor",
+    "close_button": true,
+    "layout": {
+        "horizontal_align": "Center",
+        "top": 55,
+        "width": 800,
+        "vertical_fill": true
+    },
+    "elements": [
+        {
+            "name": "style-eidtor",
+            "type": "StyleEditor"
+        }
+    ]
+}

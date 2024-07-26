@@ -1,0 +1,83 @@
+{
+    "name": "corner-panel",
+    "type": "Window",
+    "?_ignore_": [
+        { "condition": {"type": "platform", "value": "Desktop"}, "value": false },
+        { "condition": {"type": "platform", "value": "MagicLeap"}, "value": false },
+        { "condition": "", "value": true }
+    ],
+    "layout": {
+        "horizontal_align": "Right",
+        "top": 5,
+        "width": 210,
+        "height": 70
+    },
+    "style": { "show_background": false },
+    "panel": true,
+    "elements": [
+        {
+            "name": "reload-button",
+            "type": "Button",
+            "layout": {
+                "top": 10,
+                "width": 50,
+                "height": 50,
+                "horizontal_align": "Right",
+                "offset_x": 130
+            },
+            "style": {
+                "texture": "mobile-ui",
+                "texture_rect": "100 100 199 199"
+            }
+        },
+        {
+            "name": "editor-button",
+            "type": "Button",
+            "layout": {
+                "top": 10,
+                "width": 50,
+                "height": 50,
+                "horizontal_align": "Right",
+                "offset_x": 70
+            },
+            "style": {
+                "texture": "mobile-ui",
+                "texture_rect": "0 100 99 199"
+            }
+        },
+        {
+            "name": "main-menu-button",
+            "type": "Button",
+            "layout": {
+                "top": 10,
+                "width": 50,
+                "height": 50,
+                "horizontal_align": "Right",
+                "offset_x": 10
+            },
+            "style": {
+                "texture": "mobile-ui",
+                "texture_rect": "0 0 99 99"
+            }
+        }
+    ],
+    "custom": {
+        "main_menu": {
+            "layout": {
+                "horizontal_align": "Center",
+                "vertical_align": "Center",
+                "width": 500,
+                "height": 400
+            },
+            "item_height": 50,
+            "items": [
+                { "id": "Login", "text": "Login / Sign Up" },
+                { "id": "Account", "text": "Account" },
+                { "id": "Dimensions", "text": "Dimensions" },
+                { "id": "Settings", "text": "Settings" },
+                { "id": "Editor", "text": "Editor" },
+                { "id": "Logger", "text": "Show Logs" }
+            ]
+        }
+    }
+}

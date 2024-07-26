@@ -1,0 +1,89 @@
+{
+    "?_ignore_": [
+        { "condition": {"type": "platform", "value": "Desktop"}, "value": false },
+        { "condition": "", "value": true }
+    ],
+
+    "name": "properties-screen",
+    "type": "Window",
+    "scrollable": true,
+    "panel": true,
+    "layout": {
+        "horizontal_align": "Right",
+        "top": 55,
+        "width": 400,
+        "vertical_fill": true
+    },
+    "elements": [
+        {
+            "name": "tab-bar",
+            "type": "TabBar",
+            "layout": {
+                "top": 3
+            },
+            "elements": [
+                {
+                    "name": "tab-bar-selection",
+                    "type": "TabBarItem",
+                    "text": "Selection",
+                    "elements": [
+                        {
+                            "name": "delete-btn",
+                            "type": "Button",
+                            "enabled": false,
+                            "layout": {
+                                "horizontal_align": "Right",
+                                "top": 40,
+                                "width": 100,
+                                "height": 30
+                            },
+                            "text": "Delete"
+                        },
+                        {
+                            "name": "selected-props-view",
+                            "type": "PropertyView",
+                            "keep_first_item_open": true,
+                            "layout": {
+                                "top": 80,
+                                "horizontal_fill": true,
+                                "vertical_fill": true
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "tab-bar-dimension",
+                    "type": "TabBarItem",
+                    "text": "Dimension",
+                    "elements": [
+                        {
+                            "name": "dimension-props-view",
+                            "type": "PropertyView",
+                            "keep_first_item_open": true,
+                            "layout": {
+                                "horizontal_fill": true,
+                                "vertical_fill": true
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "tab-bar-location",
+                    "type": "TabBarItem",
+                    "text": "Location",
+                    "elements": [
+                        {
+                            "name": "location-props-view",
+                            "type": "PropertyView",
+                            "keep_first_item_open": true,
+                            "layout": {
+                                "horizontal_fill": true,
+                                "vertical_fill": true
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

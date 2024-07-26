@@ -1,0 +1,43 @@
+ {
+    "name": "scan-screen",
+    "type": "Window",
+    "visible": false,
+    "style": {
+        "show_background": false
+    },
+    "layout": {
+        "horizontal_align": "Center",
+        "vertical_align": "Center",
+        "width": 800,
+        "height": 1000
+    },
+    "elements": [
+        {
+            "name": "frame-img",
+            "type": "Image",
+            "style": {
+                "texture": "scan-frame-ui"
+            },
+            "layout": {
+                "horizontal_align": "Center",
+                "vertical_align": "Center",
+                "width": 600,
+                "height": 600
+            }
+        },
+        {
+            "name": "cancel-scan-btn",
+            "type": "Button",
+            "style": {
+                "texture": "mobile-ui",
+                "texture_rect": "0 420 359 539"
+            },
+            "layout": {
+                "horizontal_align": "Center",
+                "vertical_align": "Bottom",
+                "width": 360,
+                "height": 120
+            }
+        }
+    ]
+}

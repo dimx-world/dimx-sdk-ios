@@ -1,0 +1,6 @@
+{
+    "gl_shaders": {
+        "vertex": "materials/gl_shaders/shadow_mat.vs",
+        "fragment": "materials/gl_shaders/shadow_mat.fs"
+    }
+}
