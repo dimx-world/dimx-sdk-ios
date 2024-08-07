@@ -256,6 +256,11 @@ class WebViewCtrl: UIViewController, WKUIDelegate, WKScriptMessageHandler, WKNav
             return
         }
 
+        if host == "www.youtube.com" || host == "m.youtube.com" {
+            decisionHandler(.allow)
+            return
+        }
+
         UIApplication.shared.open(navigationAction.request.url!, options: [:], completionHandler: nil)
         decisionHandler(.cancel)
     }
