@@ -3,11 +3,11 @@
 #include <config/Config.h>
 #include <js/JsEnv.h>
 
-class Actor
+class Agent
 {
 public:
-    Actor(Object* object, const Config& config);
-    virtual ~Actor() = default;
+    Agent(Object* object, const Config& config);
+    virtual ~Agent() = default;
 
     ObjectId id() const { return mId; }
     Object& object() { return *mObject; }

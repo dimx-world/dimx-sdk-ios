@@ -1,16 +1,16 @@
 #pragma once
 #include <Common.h>
-#include "Actor.h"
-#include "ActorTrack.h"
+#include "Agent.h"
+#include "AgentTrack.h"
 #include <config/Config.h>
 #include <FrameContext.h>
 
 template <typename T>
-class TrackActor: public Actor
+class TrackAgent: public Agent
 {
 public:
-    TrackActor(Object* obj, const Config& config)
-    : Actor(obj, config)
+    TrackAgent(Object* obj, const Config& config)
+    : Agent(obj, config)
     , mTrack(config.get<const Config&>("track", {}))
     {
         mLoop = config.get("loop", mLoop);
@@ -48,7 +48,7 @@ public:
     float currentPosition() const { return mCurrentPosition; }
 
 private:
-    ActorTrack<T> mTrack;
+    AgentTrack<T> mTrack;
     bool mLoop{false};
     float mDuration{0.f};
     float mSpeed{0.f};

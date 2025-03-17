@@ -1,18 +1,16 @@
-import {Logger} from 'dimx-client-cpp'
-
 export class EventBus
 {
     listeners = {}
 
     subscribe(key, listener) {
         if (!key) {
-            Logger.error('BusEvent: invalid key to subscribe')
+            console.error('BusEvent: invalid key to subscribe')
             return
         }
 
         if (Array.isArray(key)) {
             if (key.length != 2 || !(key[0] && key[1])) {
-                Logger.eror(`BusEvent: subscribe supports only arrays of two elements. Received: ${JSON.stringify(key)}`)
+                console.eror(`BusEvent: subscribe supports only arrays of two elements. Received: ${JSON.stringify(key)}`)
                 return
             }
 
@@ -49,13 +47,13 @@ export class EventBus
 
     publish(key, ...args) {
         if (!key) {
-            Logger.error('BusEvent: invalid key to publish')
+            console.error('BusEvent: invalid key to publish')
             return
         }
 
         if (Array.isArray(key)) {
             if (key.length != 2 || !key[0]) {
-                Logger.eror(`BusEvent: publish supports only arrays of two elements. Received: ${JSON.stringify(key)}`)
+                console.eror(`BusEvent: publish supports only arrays of two elements. Received: ${JSON.stringify(key)}`)
                 return
             }
             let eventRecord = this.listeners[key[0]]

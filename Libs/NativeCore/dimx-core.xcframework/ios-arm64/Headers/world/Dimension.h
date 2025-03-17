@@ -24,6 +24,8 @@ class Dimension: public std::enable_shared_from_this<Dimension>
 {
     NO_COPY_MOVE(Dimension)
     DECLARE_EVENTS(DimensionEvent)
+
+public:
     using LocationCallback = std::function<void(const std::string&, const LocationPtr&)>;
 
 public:

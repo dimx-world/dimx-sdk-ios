@@ -81,7 +81,7 @@
         "debug_lines_mesh": {
             "type": "holder",
             "dynamic": true,
-            "num_verts": 1000,
+            "num_verts": 10000,
             "vertex_attribs": ["vPosition", "vColor"],
             "primitive_type": "Lines",
             "material": { "base": "Debug" }

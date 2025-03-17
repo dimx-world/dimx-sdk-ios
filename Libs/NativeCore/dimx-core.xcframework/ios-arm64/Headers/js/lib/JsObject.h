@@ -2,7 +2,7 @@
 #include <Common.h>
 #include <quickjspp.hpp>
 #include <LifeWatcher.h>
-#include "JsActorManager.h"
+#include "JsAgentManager.h"
 #include "JsAnimator.h"
 #include "JsUIScreen.h"
 #include "JsAudioPlayer.h"
@@ -33,7 +33,7 @@ public:
     void link(JsObject* parent);
     void unlink() { link(nullptr); }
 
-    qjs::Value actors();
+    qjs::Value agents();
     qjs::Value animator();
     qjs::Value uiScreen();
     qjs::Value audioPlayer();
@@ -42,13 +42,16 @@ public:
     qjs::Value child(size_t idx);
     qjs::Value location();
 
+    std::shared_ptr<JsTransform> localTransform();
+    void setLocalTransform(JsTransform* trans);
+
     std::shared_ptr<JsVec3> localPosition();
     void setLocalPosition(JsVec3* pos);
 
+    std::shared_ptr<JsTransform> worldTransform();
     std::shared_ptr<JsVec3> worldPosition();
     void setWorldPosition(JsVec3* pos);
 
-    void resetLocalRotation();
     void setLocalRotation(JsVec3* angles);
 
     void subscribe(const std::string& event, qjs::Value callback);
@@ -66,7 +69,7 @@ public:
         .fun<&JsObject::setScale>("setScale")
         .fun<&JsObject::link>("link")
         .fun<&JsObject::unlink>("unlink")
-        .fun<&JsObject::actors>("actors")
+        .fun<&JsObject::agents>("agents")
         .fun<&JsObject::animator>("animator")
         .fun<&JsObject::uiScreen>("uiScreen")
         .fun<&JsObject::audioPlayer>("audioPlayer")
@@ -75,11 +78,13 @@ public:
         .fun<&JsObject::child>("child")
         .fun<&JsObject::location>("location")
         .fun<&JsObject::subscribe>("on")
+        .fun<&JsObject::localTransform>("localTransform")
+        .fun<&JsObject::setLocalTransform>("setLocalTransform")
         .fun<&JsObject::localPosition>("localPosition")
         .fun<&JsObject::setLocalPosition>("setLocalPosition")
+        .fun<&JsObject::worldTransform>("worldTransform")
         .fun<&JsObject::worldPosition>("worldPosition")
         .fun<&JsObject::setWorldPosition>("setWorldPosition")
-        .fun<&JsObject::resetLocalRotation>("resetLocalRotation")
         .fun<&JsObject::setLocalRotation>("setLocalRotation");
     }
 
@@ -90,7 +95,7 @@ private:
     JsLocation* mLocation{nullptr};
     JsEnv* mEnv{nullptr};
     Object* mObject{nullptr};
-    std::unique_ptr<JsActorManager> mActorManager;
+    std::unique_ptr<JsAgentManager> mAgentManager;
     std::unique_ptr<JsAnimator> mAnimator;
     std::unique_ptr<JsUIScreen> mUIScreen;
     std::unique_ptr<JsAudioPlayer> mAudioPlayer;

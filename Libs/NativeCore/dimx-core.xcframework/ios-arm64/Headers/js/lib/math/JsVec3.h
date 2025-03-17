@@ -26,6 +26,10 @@ public:
         return oss.str();
     }
 
+    double getX() const { return x; }
+    double getY() const { return y; }
+    double getZ() const { return z; }
+
     double len() const {
         return static_cast<double>(length(core()));
     }
@@ -66,6 +70,9 @@ public:
         .fun<&JsVec3::x>("x")
         .fun<&JsVec3::y>("y")
         .fun<&JsVec3::z>("z")
+        .fun<&JsVec3::getX>("getX")
+        .fun<&JsVec3::getY>("getY")
+        .fun<&JsVec3::getZ>("getZ")
         .fun<&JsVec3::len>("len")
         .fun<&JsVec3::lenSq>("lenSq")
         .fun<&JsVec3::add>("add")

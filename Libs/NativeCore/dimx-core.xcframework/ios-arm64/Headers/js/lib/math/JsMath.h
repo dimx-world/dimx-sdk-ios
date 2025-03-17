@@ -3,6 +3,8 @@
 #include <quickjspp.hpp>
 
 #include "JsVec3.h"
+#include "JsQuat.h"
+#include "JsTransform.h"
 #include "JsRay.h"
 
 class JsEnv;
@@ -16,9 +18,11 @@ public:
 
     static void registerClass(qjs::Context::Module& module) {
         JsVec3::registerClass(module);
+        JsQuat::registerClass(module);
+        JsTransform::registerClass(module);
         JsRay::registerClass(module);
 
-        module.class_<JsMath>("JsMath")
+        module.class_<JsMath>("Math")
         .fun<&JsMath::distance>("distance")
         .fun<&JsMath::distanceSq>("distanceSq");
     }

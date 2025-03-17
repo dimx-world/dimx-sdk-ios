@@ -10,10 +10,12 @@ public:
     JsUtils(JsEnv* env, Dimension* dim);
 
     void openUrl(const std::string& url);
+    std::string platformName();
 
     static void registerClass(qjs::Context::Module& module) {
         module.class_<JsUtils>("JsUtils")
-        .fun<&JsUtils::openUrl>("openUrl");
+        .fun<&JsUtils::openUrl>("openUrl")
+        .fun<&JsUtils::platformName>("platformName");
     }
 
 private:

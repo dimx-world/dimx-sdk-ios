@@ -1,4 +1,3 @@
-import {Logger} from 'dimx-client-cpp'
 import {ContentTemplates} from './ContentTemplates'
 import * as ContentHandlers from './ContentHandlers'
 
@@ -41,7 +40,7 @@ export class ContentFactory {
 
     expandTemplate(record, inputTemplates, visited) {
         if (record.T in visited) {
-            Logger.error(`Circular dependency detected: template [${JSON.stringify(record)}] visited [${JSON.stringify(visited)}]`)
+            console.error(`Circular dependency detected: template [${JSON.stringify(record)}] visited [${JSON.stringify(visited)}]`)
             return null
         }
         visited[record.T] = true
@@ -56,14 +55,14 @@ export class ContentFactory {
             return this.expandTemplate({...baseTmpl, ...record, ...{T: baseTmpl.T}}, inputTemplates, visited)
         }
 
-        Logger.error(`Unknown base template [${record.T}]`)
+        console.error(`Unknown base template [${record.T}]`)
         return null
     }
 
     validateTemplate(record) {
         let globalRecord = this.getTemplate(record.T)
         if (!globalRecord) {
-            Logger.error(`Unknown template [${record.T}]`)
+            console.error(`Unknown template [${record.T}]`)
             return false
         }
         for (const key of Object.keys(record)) {
@@ -71,7 +70,7 @@ export class ContentFactory {
                 continue
             }
             if (!(key in globalRecord)) {
-                Logger.error(`Unknown template field [${key}]`)
+                console.error(`Unknown template field [${key}]`)
                 return false
             }
         }
@@ -80,28 +79,28 @@ export class ContentFactory {
 
     addTemplates(inputTemplates) {
         if (!inputTemplates) {
-            Logger.error(`Invalid templates being added [${inputTemplates}]`)
+            console.error(`Invalid templates being added [${inputTemplates}]`)
             return
         }
 
         for (const [key, record] of Object.entries(inputTemplates)) {
             if (!record) {
-                Logger.error(`Null template [${key}]. Ignoring`)
+                console.error(`Null template [${key}]. Ignoring`)
                 continue;
             }
             if (key in this.templates) {
-                Logger.error(`Template [${key}] already defined. Ignoring the duplicate`)
+                console.error(`Template [${key}] already defined. Ignoring the duplicate`)
                 continue;
             }
             let expandedRec = null
             if (record.T) {
                 expandedRec = this.expandTemplate(record, inputTemplates, {})
                 if (!expandedRec) {
-                    Logger.error(`Failed to expand content template [${key}] [${JSON.stringify(record)}]`)
+                    console.error(`Failed to expand content template [${key}] [${JSON.stringify(record)}]`)
                     continue
                 }
                 if (!this.validateTemplate(expandedRec)) {
-                    Logger.error(`Invalid content template [${key}] [${JSON.stringify(record)}]`)
+                    console.error(`Invalid content template [${key}] [${JSON.stringify(record)}]`)
                     continue
                 }
             } else {
@@ -116,13 +115,13 @@ export class ContentFactory {
 
     expandRecord(record, tmpl) {
         if (!tmpl) {
-            Logger.error(`Unknown item template [${record.T}]`)
+            console.error(`Unknown item template [${record.T}]`)
             return null
         }
 
         for (const key of Object.keys(record)) {
             if (key[0] != '_' && !(key in tmpl)) {
-                Logger.error(`Invalid content item [${JSON.stringify(record)}]`)
+                console.error(`Invalid content item [${JSON.stringify(record)}]`)
                 return null
             }
         }
@@ -131,7 +130,7 @@ export class ContentFactory {
 
     addMapping(content) {
         if (!content || !Array.isArray(content.records)) {
-            Logger.error(`Invalid content being added [${JSON.stringify(content)}]`)
+            console.error(`Invalid content being added [${JSON.stringify(content)}]`)
             return
         }
         for (const record of content.records) {
@@ -158,12 +157,12 @@ export class ContentFactory {
         for (let record of array) {
             const tmpl = this.getTemplate(record.T)
             if (!tmpl) {
-                Logger.warn(`Unknown template [${record.T}] for object [${object.name()}]`)
+                console.warn(`Unknown template [${record.T}] for object [${object.name()}]`)
                 continue
             }
             let handler = this.getHandler(tmpl.T)
             if (!handler) {
-                Logger.warn(`Unknown content handler [${tmpl.T}] for object [${object.name()}]`)
+                console.warn(`Unknown content handler [${tmpl.T}] for object [${object.name()}]`)
                 continue
             }
             record = this.expandRecord(record, tmpl)
@@ -182,7 +181,7 @@ export class ContentFactory {
             for (const [key, value] of Object.entries(record._props_)) {
                 let prop = record[key]
                 if (prop == null) {
-                    Logger.error(`Invalid _prop_ [${key}] defined in template [${record.T}]`)
+                    console.error(`Invalid _prop_ [${key}] defined in template [${record.T}]`)
                     return false
                 }
 
@@ -198,7 +197,7 @@ export class ContentFactory {
 
                     if (record._assets_) {
                         if (!Array.isArray(record._assets_)) {
-                            Logger.error('Invalid assets node in content')
+                            console.error('Invalid assets node in content')
                             return false
                         }
                         for (const path of record._assets_) {
@@ -211,7 +210,7 @@ export class ContentFactory {
                     }
 
                     if (!valid) {
-                        Logger.error(`Unable to locate content file: [${prop}]`)
+                        console.error(`Unable to locate content file: [${prop}]`)
                         return false
                     }
                 }

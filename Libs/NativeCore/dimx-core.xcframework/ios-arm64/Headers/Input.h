@@ -105,12 +105,15 @@ public:
 
     void onCharInput(int charCode);
 
+    const Vec2& cursorPosition() const { return mCursorPos; }
+
 private:
     bool processInputEvent(const InputEvent& event);
 
 private:
     InputMode mInputMode = InputMode::Normal;
     ButtonEventsArray mFrameButtonEvents;
+    Vec2 mCursorPos;
 };
 
 #endif // DIMX_CORE_INPUT_H

@@ -48,6 +48,7 @@ class AnchorManager;
 class MaterialManager;
 class AssetStore;
 class FileDialog;
+class VideoCapture;
 
 DECLARE_PTR(Engine);
 class Engine
@@ -83,6 +84,7 @@ public:
     DeviceAR&          deviceAR()          { return *mDeviceAR; }
     AnchorManager&     anchors()           { return *mAnchorManager; }
     MultimediaManager& multimedia()        { return *mMultimediaManager; }
+    VideoCapture&      videoCapture()      { return *mVideoCapture; }
     ResourceManager&   resourceManager()   { return *mResourceManager; }
     MaterialManager&   materialManager()   { return *mMaterialManager; }
     AssetStore&        assetStore()        { return *mAssetStore; }
@@ -104,6 +106,8 @@ public:
     const FrameContext& currentFrameContext() const { return mFrameContext; }
 
     void deinitialize();
+
+    bool inMainThread() const { return std::this_thread::get_id() == mThreadId; }
 
 protected:
     void initialize();
@@ -136,6 +140,7 @@ private:
     std::unique_ptr<Camera>            mCamera;
     std::unique_ptr<CameraCtrl>        mCameraCtrl;
     std::unique_ptr<MultimediaManager> mMultimediaManager;
+    std::unique_ptr<VideoCapture>      mVideoCapture;
     std::shared_ptr<ResourceManager>   mResourceManager;
     std::unique_ptr<MaterialManager>   mMaterialManager;
     std::unique_ptr<AssetStore>        mAssetStore;
@@ -172,6 +177,7 @@ inline Display&         g_display()     { return g_engine().display();        }
 inline DeviceAR&        g_deviceAR()    { return g_engine().deviceAR();       }
 inline AnchorManager&   g_anchors()     {return g_engine().anchors();         }
 inline MultimediaManager& g_multimedia() {return g_engine().multimedia();     }
+inline VideoCapture&    g_videoCapture() {return g_engine().videoCapture();   }
 inline ResourceManager& g_resourceManager() { return g_engine().resourceManager(); }
 inline MaterialManager& g_materialManager() { return g_engine().materialManager(); }
 inline AssetStore&      g_assetStore()  { return g_engine().assetStore();     }
@@ -183,10 +189,10 @@ inline Renderer&        g_renderer()    { return g_engine().renderer();       }
 inline AudioDevice&     g_audio()       { return g_engine().audio();          }
 inline ui::ImGuiManager& g_imgui()      { return g_engine().imGuiManager();   }
 
-#define ASSERT_MAIN_THREAD()                                    \
-    ASSERT(std::this_thread::get_id() == g_engine().threadId(), \
-           "Must be called on the main thread! "                \
-           << "This thread " << std::this_thread::get_id()      \
+#define ASSERT_MAIN_THREAD()                               \
+    ASSERT(g_engine().inMainThread(),                      \
+           "Must be called on the main thread! "           \
+           << "This thread " << std::this_thread::get_id() \
            << ", main thread " << g_engine().threadId())
 
 #endif // DIMX_CORE_ENGINE_H

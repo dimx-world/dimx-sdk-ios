@@ -17,8 +17,7 @@ public:
 
     ObjectId resolveName(const std::string& name) const;
 
-    const LocationInfoPtr& tryFind(ObjectId id);
-    LocationInfo& find(ObjectId id);
+    const LocationInfoPtr& find(ObjectId id);
 
     const std::vector<LocationInfoPtr>& locations() const;
 

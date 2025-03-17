@@ -3,8 +3,8 @@
 #include <config/Config.h>
 #include <edit/Property.h>
 
-DECL_ENUM(ComponentType,  Dummy,   File,   Interactive,   Node,   Skybox,   StickyDummy,   Texture,   Trigger,   UINode,   ActorManager,   AnimatedNode,   Finalizer,   Editable,   Model,   ModelNode,   AudioPlayer,   VideoPlayer,   Material,   Renderable,   CloudAnchor,   Marker)
-DECL_ESTR(ComponentType, "Dummy", "File", "Interactive", "Node", "Skybox", "StickyDummy", "Texture", "Trigger", "UINode", "ActorManager", "AnimatedNode", "Finalizer", "Editable", "Model", "ModelNode", "AudioPlayer", "VideoPlayer", "Material", "Renderable", "CloudAnchor", "Marker")
+DECL_ENUM(ComponentType,  Dummy,   File,   Interactive,   Node,   Skybox,   StickyDummy,   Texture,   Trigger,   UINode,   AgentManager,   AnimatedNode,   Finalizer,   Editable,   Model,   ModelNode,   AudioPlayer,   VideoPlayer,   Material,   Renderable,   CloudAnchor,   Marker)
+DECL_ESTR(ComponentType, "Dummy", "File", "Interactive", "Node", "Skybox", "StickyDummy", "Texture", "Trigger", "UINode", "AgentManager", "AnimatedNode", "Finalizer", "Editable", "Model", "ModelNode", "AudioPlayer", "VideoPlayer", "Material", "Renderable", "CloudAnchor", "Marker")
 
 #define DECLARE_COMPONENT(comp)                                          \
 public:                                                                  \

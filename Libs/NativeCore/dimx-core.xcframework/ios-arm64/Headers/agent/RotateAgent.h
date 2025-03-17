@@ -1,12 +1,12 @@
 #pragma once
 #include <Common.h>
-#include "TrackActor.h"
+#include "TrackAgent.h"
 #include <config/Config.h>
 
-class RotateActor: public TrackActor<float>
+class RotateAgent: public TrackAgent<float>
 {
 public:
-    RotateActor(Object* obj, const Config& config);
+    RotateAgent(Object* obj, const Config& config);
     bool update(const FrameContext& frameContext) override;
 
 private:

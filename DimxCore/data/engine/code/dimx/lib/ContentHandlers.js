@@ -1,4 +1,4 @@
-import {Utils} from 'dimx-client-cpp'
+import {Utils} from 'dimx-cpp'
 
 const AlphaActor = Object.freeze({
     type: 'Material',
@@ -33,7 +33,6 @@ export function createSidedImage(location, parentId, record, side) {
     }
 
     let imageRotX = record.orient == 'vert' ? 90 : 0
-    let imagePosY = record.orient == 'vert' ? record.height / 2 : 0
 
     let config = [
         {
@@ -61,7 +60,6 @@ export function createSidedImage(location, parentId, record, side) {
             Node: {
                 transform: {
                     rotation_angles: `${imageRotX} 0 0`,
-                    position: `0 ${imagePosY} 0`,
                     scale: `${record.width} 1 ${record.height}`
                 }
             }

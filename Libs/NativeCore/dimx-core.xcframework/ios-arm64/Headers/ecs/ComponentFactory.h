@@ -52,8 +52,8 @@ public:
 
         if (mIdToName.size() <= id) {
             mIdToName.resize(id + 1);
-            mIdToName[id] = name;
         }
+        mIdToName[id] = name;
     }
 
     size_t classIdByName(const std::string& className) const {

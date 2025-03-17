@@ -13,6 +13,8 @@ void subscribeOnEvent(const std::string& event, qjs::Value listener)           \
 void setVisible(bool value)              { JsUiElement::setVisible(value); }   \
 void setEnabled(bool value)              { JsUiElement::setEnabled(value); }   \
 void setText(const std::string& text)    { JsUiElement::setText(text); }       \
+void setColor(const std::string& color)  { JsUiElement::setColor(color); } \
+void setBorderColor(const std::string& color) { JsUiElement::setBorderColor(color); } \
 void setTexture(const std::string& texture) { JsUiElement::setTexture(texture); } \
 JsUiLayout* layout() { return JsUiElement::layout(); }
 //------------------------------------------------------------------------------
@@ -47,6 +49,7 @@ public:
     void setEnabled(bool value) { mElement->setEnabled(value); }
     void setText(const std::string& text) { mElement->setText(text); }
     void setColor(const std::string& color) { mElement->setColor(fromStr<Vec4>(color)); }
+    void setBorderColor(const std::string& color) { mElement->setBorderColor(fromStr<Vec4>(color)); }
     void setTexture(const std::string& texture);
 
     JsUiLayout* layout();
@@ -65,6 +68,7 @@ public:
             .template fun<&Class::setEnabled>("setEnabled")
             .template fun<&Class::setText>("setText")
             .template fun<&Class::setColor>("setColor")
+            .template fun<&Class::setBorderColor>("setBorderColor")
             .template fun<&Class::setTexture>("setTexture")
             .template fun<&Class::layout>("layout");
         return reg;

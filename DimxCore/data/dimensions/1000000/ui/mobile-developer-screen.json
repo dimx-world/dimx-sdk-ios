@@ -35,6 +35,14 @@
             }
         },
         {
+            "name": "hide-ui-btn",
+            "type": "Button",
+            "text": "Hide UI",
+            "layout": {
+                "horizontal_fill": true,
+            }
+        },
+        {
             "name": "world-frame",
             "type": "CollapseFrame",
             "text": "World Info",

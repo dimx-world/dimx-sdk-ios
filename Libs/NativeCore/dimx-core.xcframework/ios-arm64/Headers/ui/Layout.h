@@ -1,13 +1,8 @@
 #pragma once
 #include <Common.h>
+#include "UICommon.h"
 #include <config/Config.h>
 #include <Rect.h>
-
-DECL_ENUM(HorizontalAlign,  Left,   Center,   Right);
-DECL_ESTR(HorizontalAlign, "Left", "Center", "Right");
-
-DECL_ENUM(VerticalAlign,  Top,   Center,   Bottom);
-DECL_ESTR(VerticalAlign, "Top", "Center", "Bottom");
 
 namespace ui {
 

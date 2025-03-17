@@ -1,12 +1,12 @@
 #pragma once
 #include <Common.h>
-#include "TrackActor.h"
+#include "TrackAgent.h"
 #include <config/Config.h>
 
-class FaceCameraActor: public Actor
+class FaceCameraAgent: public Agent
 {
 public:
-    FaceCameraActor(Object* obj, const Config& config);
+    FaceCameraAgent(Object* obj, const Config& config);
     bool update(const FrameContext& frameContext) override;
 
 private:

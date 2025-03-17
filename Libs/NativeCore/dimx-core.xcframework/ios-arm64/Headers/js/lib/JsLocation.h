@@ -26,6 +26,7 @@ public:
     std::string id() const;
     const std::string& name() const;
     void createObject(qjs::Value jsConfig, qjs::Value jsCallback);
+    void createMarker(qjs::Value jsConfig, qjs::Value jsCallback);
     qjs::Value root();
     qjs::Value getObject(const std::string& id);
     qjs::Value getObjectById(ObjectId id);
@@ -56,6 +57,7 @@ public:
             .fun<&JsLocation::name>("name")
             .fun<&JsLocation::root>("root")
             .fun<&JsLocation::createObject>("createObject")
+            .fun<&JsLocation::createMarker>("createMarker")
             .fun<&JsLocation::getObject>("getObject")
             .fun<&JsLocation::getObjectByName>("getObjectByName")
             .fun<&JsLocation::deleteObject>("deleteObject")

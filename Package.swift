@@ -15,7 +15,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/google-ar/arcore-ios-sdk", from: "1.44.0")
+        .package(url: "https://github.com/google-ar/arcore-ios-sdk", from: "1.48.0")
     ],
     targets: [
         .target(

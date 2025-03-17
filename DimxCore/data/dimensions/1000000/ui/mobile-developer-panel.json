@@ -7,7 +7,7 @@
     "name": "mobile-developer-panel",
     "type": "Window",
     "panel": true,
-    "visible": false,
+    "_visible": false,
     "layout": {
         "horizontal_align": "Right",
         "top": 100,

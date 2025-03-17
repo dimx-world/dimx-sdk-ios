@@ -47,6 +47,7 @@ public:
     qjs::Value locationById(ObjectId id) const;
     JsLocation* findLocation(ObjectId id);
 
+    void enterLocation(qjs::Value jsOptions, qjs::Value jsCallback);
     void exitLocation(const std::string& id);
     void reloadLocation(const std::string& id);
 
@@ -62,6 +63,7 @@ public:
             .fun<&JsDimension::unfocus>("unfocus")
             .fun<&JsDimension::locations>("locations")
             .fun<&JsDimension::location>("location")
+            .fun<&JsDimension::enterLocation>("enterLocation")
             .fun<&JsDimension::exitLocation>("exitLocation")
             .fun<&JsDimension::reloadLocation>("reloadLocation")
             .fun<&JsDimension::loadTextFile>("loadTextFile")
@@ -78,8 +80,8 @@ private:
     JsTimer mTimer;
     std::map<ObjectId, JsLocation> mLocations;
 
-    VoidCb mEnterCb;
-    VoidCb mExitCb;
+    std::vector<VoidCb> mEnterCb;
+    std::vector<VoidCb> mExitCb;
     VoidCb mFocusCb;
     VoidCb mUnfocusCb;
     

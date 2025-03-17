@@ -1,11 +1,11 @@
 #pragma once
 #include <Common.h>
-#include "TrackActor.h"
+#include "TrackAgent.h"
 #include <config/Config.h>
 
-class ScaleActor: public TrackActor<float>
+class ScaleAgent: public TrackAgent<float>
 {
 public:
-    ScaleActor(Object* obj, const Config& config);
+    ScaleAgent(Object* obj, const Config& config);
     bool update(const FrameContext& frameContext) override;
 };

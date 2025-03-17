@@ -26,6 +26,7 @@ public:
     std::shared_ptr<edit::Property> createEditableProperty() override;
 
     void update(const FrameContext& frameContext);
+
     Object* parent() { return mParent; }
     ObjectId parentId() const { return mParentId; }
     void addChild(const ObjectPtr& child, bool adjustTransform = false);
@@ -36,22 +37,20 @@ public:
     void setVisible(const bool visible) { mVisible = visible; }
     bool frameVisibility() const { return mFrameVisibility; }
 
-    const Transform& localTrans() const { return mLocalTrans; }
-    const Transform& trans() const { return mWorldTrans; }
-    void setLocalTrans(const Transform& localTrans);
     Transform origTransform() const;
 
-    const Vec3& position() const { return mWorldTrans.position(); }
-    const Quat& rotation() const { return mWorldTrans.rotation(); }
-    const Vec3& scale() const { return mWorldTrans.scale(); }
+    const Transform& localTransform() const { return mLocalTrans; }
+    void setLocalTransform(const Transform& localTrans);
 
-    void setPosition(const Vec3& pos);
-    void setRotation(const Quat& quat);
-    void setScale(const Vec3& scale);
+    void setLocalPosition(const Vec3& pos);
+    void setLocalRotation(const Quat& quat);
+    void setLocalScale(const Vec3& scale);
 
+    const Transform& worldTransform() const { return mWorldTrans; }
+    const Vec3& worldPosition() const { return mWorldTrans.position(); }
     void setWorldPosition(const Vec3& pos);
-
-    const Mat4& transMat() const { return mWorldTrans.matrix(); }
+    const Quat& worldRotation() const { return mWorldTrans.rotation(); }
+    const Vec3& worldScale() const { return mWorldTrans.scale(); }
 
     void setApplyParentTransform(bool value) { mApplyParentTransform = value; }
 

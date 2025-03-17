@@ -29,14 +29,14 @@ std::vector<T> parseVector(const Config& values)
 
 } // namespace detail
 
-DECL_ENUM(ActorTrackType,  Linear,   CatmullRom,   Cubic)
-DECL_ESTR(ActorTrackType, "Linear", "CatmullRom", "Cubic")
+DECL_ENUM(AgentTrackType,  Linear,   CatmullRom,   Cubic)
+DECL_ESTR(AgentTrackType, "Linear", "CatmullRom", "Cubic")
 
 template <typename T>
-class ActorTrack
+class AgentTrack
 {
 public:
-    ActorTrack(const Config& config) {
+    AgentTrack(const Config& config) {
         if (config.isArray()) {
             mValues = detail::parseVector<T>(config);
         } else {
@@ -56,7 +56,7 @@ public:
         }
 
         switch (mType) {
-            case ActorTrackType::Linear: {
+            case AgentTrackType::Linear: {
                 bool loop = config.get("loop", false);
                 if (loop) {
                     mValues.push_back(mValues.front());
@@ -64,14 +64,14 @@ public:
                 }
                 break;
             }
-            case ActorTrackType::CatmullRom: {
+            case AgentTrackType::CatmullRom: {
                 int pointsPerSegment = config.get("points_per_segment", 4);
                 bool loop = config.get("loop", false);
                 mValues = calcCatmullRomCurve(mValues, pointsPerSegment, loop);
                 mPositions.clear();
                 break;
             }
-            case ActorTrackType::Cubic: {
+            case AgentTrackType::Cubic: {
                 int pointsPerSegment = config.get("points_per_segment", 4);
                 bool loop = config.get("loop", false);
                 mValues = calcCubicCurve(mValues, pointsPerSegment, loop);
@@ -219,7 +219,7 @@ private:
     }
 
 private:
-    ActorTrackType mType{ActorTrackType::Linear};
+    AgentTrackType mType{AgentTrackType::Linear};
     std::vector<T> mValues;
     std::vector<float> mPositions;
 

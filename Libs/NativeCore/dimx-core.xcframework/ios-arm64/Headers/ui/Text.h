@@ -1,8 +1,6 @@
 #pragma once
 #include "Element.h"
-
-DECL_ENUM(TextAlignment,  Left,   Center,   Right);
-DECL_ESTR(TextAlignment, "Left", "Center", "Right");
+#include "TextFormatter.h"
 
 namespace ui {
 
@@ -17,10 +15,11 @@ public:
     Vec2 getTextRectPx() const;
 
 private:
-    bool mWrapText{false};
-    bool mMultiline{false};
     bool mFrame{false};
-    TextAlignment mAlignment{TextAlignment::Left};
+    HorizontalAlign mAlignmentH{HorizontalAlign::Left};
+    VerticalAlign mAlignmentV{VerticalAlign::Top};
+
+    TextFormatter mFormatter;
 };
 
 } // namespace ui

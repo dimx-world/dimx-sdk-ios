@@ -6,8 +6,8 @@
 #include "Common.h"
 #include "CrossObject.h"
 
-DECL_ENUM(CrossType,  Display,   Input,   PhysicsManager,   CameraCtrl,   Renderer,   LocalServerResourceInterface,   RemoteResourceInterface,   FileDialog,   ResourceCache,   FileSystem,   DeviceAR,   NativeCloudAnchorSession,   AnalyticsManager,   MultimediaManager,   AudioDevice)
-DECL_ESTR(CrossType, "Display", "Input", "PhysicsManager", "CameraCtrl", "Renderer", "LocalServerResourceInterface", "RemoteResourceInterface", "FileDialog", "ResourceCache", "FileSystem", "DeviceAR", "NativeCloudAnchorSession", "AnalyticsManager", "MultimediaManager", "AudioDevice")
+DECL_ENUM(CrossType,  Display,   Input,   PhysicsManager,   CameraCtrl,   Renderer,   LocalServerResourceInterface,   RemoteResourceInterface,   FileDialog,   ResourceCache,   FileSystem,   DeviceAR,   NativeCloudAnchorSession,   AnalyticsManager,   MultimediaManager,   AudioDevice,   VideoCapture)
+DECL_ESTR(CrossType, "Display", "Input", "PhysicsManager", "CameraCtrl", "Renderer", "LocalServerResourceInterface", "RemoteResourceInterface", "FileDialog", "ResourceCache", "FileSystem", "DeviceAR", "NativeCloudAnchorSession", "AnalyticsManager", "MultimediaManager", "AudioDevice", "VideoCapture")
 
 class CrossFactory
 {

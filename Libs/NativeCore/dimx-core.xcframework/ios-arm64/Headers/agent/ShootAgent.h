@@ -1,12 +1,12 @@
 #pragma once
 #include <Common.h>
-#include "Actor.h"
+#include "Agent.h"
 #include <config/Config.h>
 
-class ShootActor: public Actor
+class ShootAgent: public Agent
 {
 public:
-    ShootActor(Object* obj, const Config& config);
+    ShootAgent(Object* obj, const Config& config);
     bool update(const FrameContext& frameContext) override;
 
 private:
