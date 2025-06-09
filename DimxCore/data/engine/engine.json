@@ -13,10 +13,10 @@
         },
         "remote": {
             "files_host": "https://files.dimx.world",
-            "?ws_connection": [
-                { "condition": {"type": "platform", "value": "Web"}, "value": "wss://api.dimx.world:8001" },
-                { "condition": "", "value": "ws://api.dimx.world:8000" }
-            ]
+            "default_generic_service": {
+                "ws_url": "ws://generic-01.dimx.world:8000",
+                "wss_url": "wss://generic-01.dimx.world:8001"
+            }
         },
         "cache": {
             "?enabled": [

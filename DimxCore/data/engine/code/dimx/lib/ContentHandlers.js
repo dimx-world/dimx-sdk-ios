@@ -14,7 +14,7 @@ const FaceCameraActor = Object.freeze({
 })
 
 function animateAlpha(object) {
-    object.actors().add(AlphaActor);
+    object.agents().add(AlphaActor);
 }
 
 export function createSidedImage(location, parentId, record, side) {
@@ -77,7 +77,7 @@ export function createSidedImage(location, parentId, record, side) {
             })
         }
         if (record.animate) {
-            objects[1].actors().add(AlphaActor);
+            objects[1].agents().add(AlphaActor);
         }
     })
 }
@@ -95,7 +95,7 @@ export function handleModelContent(location, parentId, record) {
     let config = {
         ModelNode: {
             model: record.model,
-            animator: record.anim ? { start_anim: record.anim } : undefined
+            animator: record.anim ? { start_animation: record.anim } : undefined
         },
         Node: {
             parent: parentId,
@@ -142,10 +142,10 @@ export function handleVideoContent(location, parentId, record) {
     if (config, record.animate || record.face_camera) {
         callback = (object) => {
             if (record.animate) {
-                object.actors().add(AlphaActor);
+                object.agents().add(AlphaActor);
             }
             if (record.face_camera) {
-                object.actors().add(FaceCameraActor);
+                object.agents().add(FaceCameraActor);
             }
         }
     }
@@ -185,10 +185,10 @@ export function handleAudioContent(location, parentId, record) {
     if (config, record.animate || record.face_camera) {
         callback = (object) => {
             if (record.animate) {
-                object.actors().add(AlphaActor);
+                object.agents().add(AlphaActor);
             }
             if (record.face_camera) {
-                object.actors().add(FaceCameraActor);
+                object.agents().add(FaceCameraActor);
             }
         }
     }

@@ -19,8 +19,10 @@ class WebViewCtrl: UIViewController, WKUIDelegate, WKScriptMessageHandler, WKNav
     var versionReloaded = false
     
     
-    func loadWebUrl(_ webUrl: String) {
-        Logger.info("loadAppUrl: \(webUrl)")
+    func loadWebUrl(_ url: String) {
+        Logger.info("loadAppUrl: \(url)")
+        let webUrl = Context.inst().convertAppUrlToWebUrl(url)
+        Logger.info("loadAppUrl converted: \(webUrl)")
 
         if (!webUrl.isEmpty) {
             webView.load(URLRequest(url: URL(string: webUrl)!))
