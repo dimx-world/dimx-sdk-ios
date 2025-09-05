@@ -4,12 +4,12 @@
 #include <world/Dimension.h>
 #include "JsObjectCache.h"
 #include "JsTimer.h"
+#include "JsLocation.h"
 #include <quickjspp.hpp>
 
 class JsEnv;
 class Dimension;
 class Location;
-class JsLocation;
 class JsDimension
 {
     using VoidCb = std::function<void()>;
@@ -17,8 +17,6 @@ class JsDimension
     using ValueRBoolCb = std::function<bool(qjs::Value)>;
     using LocationCb = std::function<void(JsLocation*)>;
     using RemoteMessageCb = std::function<void(qjs::Value)>;
-    using CustomParamsCb = std::function<void(qjs::Value, std::string)>;
-
 
 public:
     JsDimension(JsEnv* env, Dimension* dim);
@@ -39,7 +37,7 @@ public:
     void onCustomParams(ObjectId locationId, const std::string& params);
     bool onInputEvent(const InputEvent& event);
 
-    void onAddDummy(qjs::Value object);
+    void onAddDummy(Object* object, qjs::Value jsObject);
     void onRemoveDummy(qjs::Value object);
 
     std::vector<const JsLocation*> locations() const;
@@ -52,7 +50,9 @@ public:
     void reloadLocation(const std::string& id);
 
     void sendRemoteRequest(qjs::Value request, qjs::Value callback);
-    void subscribe(std::string event, qjs::Value callback);
+    void subscribe(std::string event, qjs::Value arg1, qjs::Value arg2);
+
+    bool validateResource(const std::string& type, const std::string& name);
 
     void loadTextFile(const std::string& filepath, qjs::Value callback) const;
 
@@ -69,6 +69,7 @@ public:
             .fun<&JsDimension::loadTextFile>("loadTextFile")
             .fun<&JsDimension::sendRemoteRequest>("sendRemoteRequest")
             .fun<&JsDimension::subscribe>("on")
+            .fun<&JsDimension::validateResource>("validateResource")
             .fun<&JsDimension::timer>("timer");
     }
 
@@ -89,8 +90,8 @@ private:
     std::vector<ValueCb> mButtonReleasedCb;
     std::vector<ValueCb> mCursorMovedCb;
 
-    std::vector<ValueCb> mRemoteMessageCb;
-    std::vector<CustomParamsCb> mCustomParamsCb;
+    std::map<std::string, std::vector<ValueCb>> mRemoteMessageCb;
+    std::map<std::string, std::vector<ValueCb>> mCustomParamsCb;
     std::vector<ValueCb> mAddDummyCb;
     std::vector<ValueCb> mRemoveDummyCb;
 };

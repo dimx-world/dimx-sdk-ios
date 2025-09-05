@@ -42,13 +42,12 @@ public:
     void update(const FrameContext& frameContext) override;
     void onShow() override;
 
-    void showAsset(AssetScope scope, AssetFilter filter, const std::string& assetName);
+    void showAsset(AssetFilter filter, const std::string& assetName);
 
 private:
     ResourceManager& getResourceManager();
     const std::string& getAssetMessage(ResourceType type, const std::string& name, MessageTag msgTag);
     
-    void setScope(AssetScope scope);
     void setFilter(AssetFilter filter);
     void setSelected(const ItemInfo& item);
 
@@ -69,7 +68,6 @@ private:
     void updateSelectedModel();
 
 private:
-    AssetScope mScope{AssetScope::Dimension};
     AssetFilter mFilter{AssetFilter::All};
 
     ui::TabBarItemPtr mDimensionTab;

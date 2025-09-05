@@ -99,7 +99,7 @@ public:
     static void registerClass(qjs::Context::Module& module) {
         module.class_<JsTransform>("Transform")
         .constructor<>()
-        .constructor<JsVec3*, JsQuat*, JsVec3*>()
+        //.constructor<JsVec3*, JsQuat*, JsVec3*>()
         .fun<&JsTransform::position>("position")
         .fun<&JsTransform::setPosition>("setPosition")
         .fun<&JsTransform::rotation>("rotation")

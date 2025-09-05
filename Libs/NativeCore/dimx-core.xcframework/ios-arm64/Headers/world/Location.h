@@ -67,6 +67,7 @@ public:
     void logLocationSessionEvent();
 
     ui::UIContext* createUIScreen(const Config& config);
+    bool deleteUIScreen(ObjectId id);
 
     Vec3 getCameraLocalPos() const;
     Vec3 getCameraLocalDir() const;
@@ -85,7 +86,7 @@ private:
     std::shared_ptr<Scene> mScene;
     ResourceManagerPtr mResourceManager;
 
-    std::unique_ptr<ui::UIContext> mUiContext;
+    std::vector<std::unique_ptr<ui::UIContext>> mUiContexts;
 
     std::string mName;
 

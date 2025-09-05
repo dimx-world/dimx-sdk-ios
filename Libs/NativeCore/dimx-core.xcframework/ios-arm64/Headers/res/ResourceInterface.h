@@ -2,14 +2,17 @@
 #include <Common.h>
 #include <config/Config.h>
 #include <DoubleBuffer.h>
+#include <atomic>
 #include <mutex>
 #include <thread>
-
+#include <condition_variable>
 
 STRUCT_DECLARE_PTR(ResourceResponse)
 struct ResourceResponse {
     uint32_t requestId{0};
+    std::string type;
     std::string error;
+    ObjectId dimension; // to support "REMOTE_MESSAGE_TO_CLIENT"
     ConfigPtr data;
 };
 

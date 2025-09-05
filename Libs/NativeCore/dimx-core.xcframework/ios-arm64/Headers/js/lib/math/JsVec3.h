@@ -5,8 +5,7 @@
 class JsVec3
 {
 public:
-    JsVec3() = default;
-    JsVec3(double _x, double _y, double _z) 
+    JsVec3(double _x = 0.0, double _y = 0.0, double _z = 0.0) 
     : x(_x), y(_y), z(_z)
     {}
 
@@ -64,7 +63,6 @@ public:
 
     static void registerClass(qjs::Context::Module& module) {
         module.class_<JsVec3>("Vec3")
-        .constructor<>()
         .constructor<double, double, double>()
         .fun<&JsVec3::str>("str")
         .fun<&JsVec3::x>("x")

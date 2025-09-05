@@ -14,5 +14,5 @@ public:
     virtual void deinitialize() {}
     virtual void update(const FrameContext& frameContext) {}
 
-    virtual std::unique_ptr<NativeAudio> createAudio(const AudioStreamPlayback&) { return {}; };
+    virtual std::unique_ptr<NativeAudio> createAudio(const AudioStreamPlayback&);
 };

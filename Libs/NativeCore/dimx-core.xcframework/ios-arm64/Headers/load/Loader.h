@@ -3,6 +3,8 @@
 #include <DoubleBuffer.h>
 #include <mutex>
 #include <thread>
+#include <atomic>
+#include <condition_variable>
 
 class DimensionLoader;
 class Loader

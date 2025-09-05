@@ -11,6 +11,8 @@ class UIContext
 public:
     UIContext(Dimension* dim, Location* loc, const Config& config);
 
+    const ObjectId& id() const { return mId; };
+
     Dimension* dimension() { return mDimension; }
     Location* location() { return mLocation; }
 
@@ -21,6 +23,7 @@ public:
     const ElementPtr& root() const { return mRoot; }
 
 private:
+    ObjectId mId;
     Dimension* mDimension = nullptr;
     Location* mLocation = nullptr;
     UIScheme mScheme;

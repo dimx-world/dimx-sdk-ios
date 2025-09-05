@@ -3,6 +3,7 @@
 #include <quickjspp.hpp>
 #include <thread>
 #include <mutex>
+#include <unordered_map>
 
 class Config;
 class Buffer;
@@ -30,6 +31,12 @@ public:
     qjs::Value global() { return mContext.global(); }
 
     qjs::Value newObject() { return mContext.newObject(); }
+
+    // Register a cluster module that can be imported by name
+    void registerClusterModule(const std::string& clusterName, const std::string& filePath);
+    
+    // Get the file path for a registered cluster module (used by module loader)
+    std::string getClusterModulePath(const std::string& clusterName) const;
 
     // Unprotected calls!
     Config jsValueToConfig(qjs::Value value);         // these calls are originated from javascript
@@ -75,4 +82,7 @@ private:
     qjs::Runtime mRuntime;
     qjs::Context mContext;
     qjs::Value mDateCtr;
+    
+    // Registry for cluster modules that can be imported by name
+    std::unordered_map<std::string, std::string> mClusterModules;
 };

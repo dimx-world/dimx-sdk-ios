@@ -33,10 +33,10 @@ public:
     qjs::Value getObjectByName(const std::string& name);
     void deleteObject(std::string id);
     qjs::Value createUIScreen(qjs::Value jsConfig);
+    void deleteUIScreen(const std::string& strId);
     qjs::Value timer();
 
     void subscribe(std::string event, qjs::Value callback);
-    bool validateResource(const std::string& type, const std::string& name);
 
     void onUpdate(const FrameContext& frameContext);
 
@@ -62,8 +62,8 @@ public:
             .fun<&JsLocation::getObjectByName>("getObjectByName")
             .fun<&JsLocation::deleteObject>("deleteObject")
             .fun<&JsLocation::createUIScreen>("createUIScreen")
+            .fun<&JsLocation::deleteUIScreen>("deleteUIScreen")
             .fun<&JsLocation::subscribe>("on")
-            .fun<&JsLocation::validateResource>("validateResource")
             .fun<&JsLocation::getCameraPos>("getCameraPos")
             .fun<&JsLocation::getCameraDir>("getCameraDir")
             .fun<&JsLocation::localToWorldPoint>("localToWorldPoint")
@@ -85,7 +85,7 @@ private:
     Location* mLocation{nullptr};
     JsObjectCache mObjectCache;
 
-    std::unique_ptr<JsUIScreen> mUIScreen;
+    std::vector<std::unique_ptr<JsUIScreen>> mUIScreens;
     JsTimer mTimer;
 
     std::vector<VoidCb> mEnterCb;

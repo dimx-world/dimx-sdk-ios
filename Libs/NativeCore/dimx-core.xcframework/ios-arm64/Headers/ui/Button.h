@@ -22,6 +22,7 @@ private:
     float mTextPadding{-1.f};
     bool mForceBorder{false};
     float mDisabledAlpha{1.f};
+    bool mTransparentButton{false};
 };
 
 } // namespace

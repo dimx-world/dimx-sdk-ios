@@ -11,18 +11,6 @@
         "width": 600,
         "vertical_fill": true
     },
-    "custom": {
-        "import_menu": {
-            "item_height": 20,
-            "layout": {
-                "width": 200
-            },
-            "items": [
-                { "id": "Dimension", "text": "To dimension" },
-                { "id": "Location", "text": "To location" }
-            ]
-        }
-    },
     "elements": [
         {
             "name": "search-txt",

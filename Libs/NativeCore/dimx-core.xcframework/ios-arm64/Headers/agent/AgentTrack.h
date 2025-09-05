@@ -97,7 +97,7 @@ public:
         }
     }
 
-    size_t numPoints() const { mValues.size(); }
+    size_t numPoints() const { return mValues.size(); }
     float euclideanLength() const { return mEuclideanLength; }
 
     T evaluate(float position) {

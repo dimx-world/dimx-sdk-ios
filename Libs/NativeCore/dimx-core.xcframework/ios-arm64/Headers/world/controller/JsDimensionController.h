@@ -14,10 +14,16 @@ class JsAccount;
 class JsLocalStorage;
 class JsUI;
 class JsUtils;
+class JsCluster;
+
 class JsDimensionController: public DimensionController
 {
-public:
-    static bool javascriptPresent(ResourceManager& resMgr);
+
+private:
+    struct ClusterInfo {
+        qjs::Value jsValue;
+        JsCluster* cluster{nullptr};
+    };
 
 public:
     JsDimensionController(Dimension* dim, CounterPtr initCounter);
@@ -37,8 +43,11 @@ public:
 
     void onRemoteClientMesssage(const Config& msg) override;
 
+    JsCluster* getCluster(const std::string& name) const;
+
 private:
    void onInputEvent(const InputEvent& event);
+   void initClusters();
 
 private:
     std::unique_ptr<JsEnv> mJsEnv;
@@ -49,6 +58,8 @@ private:
     std::unique_ptr<JsLocalStorage> mLocalStorage;
     std::unique_ptr<JsUtils> mUtils;
     std::unique_ptr<JsUI> mUI;
+
+    std::map<std::string, ClusterInfo> mClusters;
 
     bool mButton1Tracked{false};
     std::optional<InputEvent> mCursorMoveEvent;

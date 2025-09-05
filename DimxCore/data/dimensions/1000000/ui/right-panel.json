@@ -15,7 +15,7 @@
         {
             "name": "list-container",
             "type": "Container",
-            "item_spacing": 5,
+            "item_spacing": 55,
             "layout": {
                 "horizontal_fill": true,
                 "vectical_fill": true

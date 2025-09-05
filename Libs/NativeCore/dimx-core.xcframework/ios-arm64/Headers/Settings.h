@@ -52,7 +52,7 @@ public:
 
     bool offlineMode() const                                { return mOfflineMode; }
     bool displayStats() const                               { return mDisplayStats; }
-    const std::string& wsConnection() const                 { return mWsConnection; }
+    const std::string& genericService() const               { return mGenericService; }
     const std::string& filesHost() const                    { return mFilesHost; }
 
     const ObjectPtr& entity() { return mEntity; }
@@ -80,6 +80,8 @@ private:
     }
 
     void saveConfig();
+
+    std::string getGenericService() const;
 
 private:
     static std::string s_appInstanceId;
@@ -127,7 +129,9 @@ private:
     bool mOfflineMode = false;
     bool mDisplayStats = false;
 
-    std::string mWsConnection;
+    std::string mGenericServiceOverride;
+    std::string mGenericServiceDefault;
+    std::string mGenericService;
     std::string mFilesHost;
 };
 

@@ -1,115 +1,83 @@
-import {ContentTemplates} from './ContentTemplates'
-import * as ContentHandlers from './ContentHandlers'
+import {Dimension} from 'dimx-cpp'
+import {Templates} from './ContentTemplates'
 
 export class ContentFactory {
-    parent = undefined
     templates = {}
-    mapping = {}
-    handlers = {}
+    content = {}
 
-    constructor(parent) {
-        this.parent = parent
-
-        // default stuff
-        this.addTemplates(ContentTemplates)
-
-        this.addHandler('image', ContentHandlers.handleImageContent)
-        this.addHandler('model', ContentHandlers.handleModelContent)
-        this.addHandler('video', ContentHandlers.handleVideoContent)
-        this.addHandler('audio', ContentHandlers.handleAudioContent)
-        this.addHandler('dummy', ContentHandlers.handleDummyContent)
-        this.addHandler('trigger', ContentHandlers.handleTriggerContent)
-        this.addHandler('text2d', ContentHandlers.handleText2dContent)
-    }
-
-    getTemplate(key) {
-        let tmpl = this.templates[key]
-        if (!tmpl && this.parent) {
-            tmpl = this.parent.getTemplate(key)
+    constructor() {
+        for (const tmpl of Templates) {
+            this.addTemplate(tmpl.name, tmpl.config, tmpl.handler)
         }
-        return tmpl
     }
 
-    getHandler(key) {
-        let handler = this.handlers[key]
-        if (!handler && this.parent) {
-            handler = this.parent.getHandler(key)
+    expandTemplate(record, visited) {
+        if (!record.T) {
+            return record
         }
-        return handler
-    }
 
-    expandTemplate(record, inputTemplates, visited) {
         if (record.T in visited) {
             console.error(`Circular dependency detected: template [${JSON.stringify(record)}] visited [${JSON.stringify(visited)}]`)
             return null
         }
         visited[record.T] = true
 
-        let baseTmpl = this.getTemplate(record.T)
-        if (baseTmpl) {
-            return {...baseTmpl, ...record, ...{T: baseTmpl.T}}
+        let baseTmpl = this.templates[record.T]
+        if (!baseTmpl) {
+            console.error(`Unknown base template [${record.T}]`)
+            return null
         }
 
-        if (record.T in inputTemplates) {
-            let baseTmpl = inputTemplates[record.T]
-            return this.expandTemplate({...baseTmpl, ...record, ...{T: baseTmpl.T}}, inputTemplates, visited)
-        }
-
-        console.error(`Unknown base template [${record.T}]`)
-        return null
-    }
-
-    validateTemplate(record) {
-        let globalRecord = this.getTemplate(record.T)
-        if (!globalRecord) {
-            console.error(`Unknown template [${record.T}]`)
-            return false
-        }
         for (const key of Object.keys(record)) {
-            if (key[0] == '_') {
+            if (key[0] === '_' || key === 'T') {
                 continue
             }
-            if (!(key in globalRecord)) {
-                console.error(`Unknown template field [${key}]`)
-                return false
+
+            const baseField = baseTmpl[key]
+            if (baseField === undefined) {
+                console.error(`Unknown field [${key}] in template derived from [${record.T}]`)
+                return null
             }
         }
-        return true
+
+        return {...baseTmpl, ...record}
     }
 
-    addTemplates(inputTemplates) {
-        if (!inputTemplates) {
-            console.error(`Invalid templates being added [${inputTemplates}]`)
-            return
+    addTemplate(name, template, handler) {
+        if (!name || !template /*|| !handler*/) {
+            console.error(`Null template [${name}]. Ignoring`)
+            return;
+        }
+        if (name in this.templates) {
+            console.error(`Template [${name}] already defined. Ignoring the duplicate`)
+            return;
+        }
+        let expandedRec = this.expandTemplate(template, {})
+        if (!expandedRec) {
+            console.error(`Failed to expand content template [${name}] [${JSON.stringify(template)}]`)
+            return;
         }
 
-        for (const [key, record] of Object.entries(inputTemplates)) {
-            if (!record) {
-                console.error(`Null template [${key}]. Ignoring`)
-                continue;
-            }
-            if (key in this.templates) {
-                console.error(`Template [${key}] already defined. Ignoring the duplicate`)
-                continue;
-            }
-            let expandedRec = null
-            if (record.T) {
-                expandedRec = this.expandTemplate(record, inputTemplates, {})
-                if (!expandedRec) {
-                    console.error(`Failed to expand content template [${key}] [${JSON.stringify(record)}]`)
-                    continue
-                }
-                if (!this.validateTemplate(expandedRec)) {
-                    console.error(`Invalid content template [${key}] [${JSON.stringify(record)}]`)
-                    continue
-                }
-            } else {
-                // global template
-                expandedRec = record
-                expandedRec.T = key
-            }
+        if (handler) {
+            expandedRec._handler_ = handler
+        }
 
-            this.templates[key] = expandedRec;
+        this.templates[name] = expandedRec;
+    }
+
+    addContent(cluster, content) {
+        if (!content || !Array.isArray(content)) {
+            console.error(`Invalid content being added [${JSON.stringify(content)}]`)
+            return
+        }
+        for (const record of content) {
+            let recordKey = record.D
+            delete record.D
+            if (!(recordKey in this.content)) {
+                this.content[recordKey] = []
+            }
+            record._cluster_ = cluster
+            this.content[recordKey].push(record)
         }
     }
 
@@ -120,103 +88,66 @@ export class ContentFactory {
         }
 
         for (const key of Object.keys(record)) {
-            if (key[0] != '_' && !(key in tmpl)) {
+            if (key[0] != '_' && key != 'T' && !(key in tmpl)) {
                 console.error(`Invalid content item [${JSON.stringify(record)}]`)
                 return null
             }
         }
-        return {...tmpl, ...record, ...{T: tmpl.T}}
-    }
+        const expanded = {...tmpl, ...record}
 
-    addMapping(content) {
-        if (!content || !Array.isArray(content.records)) {
-            console.error(`Invalid content being added [${JSON.stringify(content)}]`)
-            return
-        }
-        for (const record of content.records) {
-            let recordKey = record.D
-            delete record.D
-            if (!(recordKey in this.mapping)) {
-                this.mapping[recordKey] = []
+        if (expanded._meta_) {
+            for (const [key, info] of Object.entries(expanded._meta_)) {
+                if (!info.resource) {
+                    continue
+                }
+                const value = expanded[key];
+                if (!value) {
+                    continue
+                }
+
+                if (!expanded?._cluster_?.basePath) {
+                    continue
+                }
+
+                const pathInCluster = `${expanded._cluster_.basePath()}/${value}`;
+                if (Dimension.validateResource(info.resource, pathInCluster)) {
+                    expanded[key] = pathInCluster
+                } else if (!Dimension.validateResource(info.resource, value)) {
+                    console.error(`Unable to locate content resource [${info.resource}] [${value}]`)
+                    return null
+                }
             }
-            record._assets_ = content.assets
-            this.mapping[recordKey].push(record)
         }
-    }
 
-    addHandler(key, callback) {
-        this.handlers[key] = callback
+        delete expanded._meta_;
+        delete expanded._cluster_;
+        return expanded
     }
 
     createContent(object) {
-        let array = this.mapping[object.name()]
+        let array = this.content[object.name()]
         if (!array) {
-            return false
+            return
         }
-        let result = false
         for (let record of array) {
-            const tmpl = this.getTemplate(record.T)
+            const tmpl = this.templates[record.T]
             if (!tmpl) {
                 console.warn(`Unknown template [${record.T}] for object [${object.name()}]`)
                 continue
             }
-            let handler = this.getHandler(tmpl.T)
-            if (!handler) {
+
+            if (!tmpl._handler_) {
                 console.warn(`Unknown content handler [${tmpl.T}] for object [${object.name()}]`)
                 continue
             }
+
             record = this.expandRecord(record, tmpl)
-            if (record) {
-                if (this.finalizeContentRecord(record, object)) {
-                    result = true
-                    handler(object.location(), object.id(), record)
-                }
+            if (!record) {
+                continue
             }
+
+            tmpl._handler_(object, record)
         }
-        return result
     }
 
-    finalizeContentRecord(record, object) {
-        if (record._props_) {
-            for (const [key, value] of Object.entries(record._props_)) {
-                let prop = record[key]
-                if (prop == null) {
-                    console.error(`Invalid _prop_ [${key}] defined in template [${record.T}]`)
-                    return false
-                }
-
-                if (value.resource) {
-                    if (!prop) {
-                        continue
-                    }
-                    if (object.location().validateResource(value.resource, prop)) {
-                        continue
-                    }
-
-                    let valid = false
-
-                    if (record._assets_) {
-                        if (!Array.isArray(record._assets_)) {
-                            console.error('Invalid assets node in content')
-                            return false
-                        }
-                        for (const path of record._assets_) {
-                            if (object.location().validateResource(value.resource, `${path}/${prop}`)) {
-                                record[key] = `${path}/${prop}`
-                                valid = true
-                                break
-                            }
-                        }
-                    }
-
-                    if (!valid) {
-                        console.error(`Unable to locate content file: [${prop}]`)
-                        return false
-                    }
-                }
-            }
-            delete record._props_
-        }
-        return true
-    }
 }

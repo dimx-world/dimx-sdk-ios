@@ -8,20 +8,20 @@ class Object;
 class JsUIScreen
 {
 public:
-    JsUIScreen(JsEnv* env, ui::Element* uiRoot);
+    JsUIScreen(ObjectId id, JsEnv* env, ui::Element* uiRoot);
 
-//    void setController(qjs::Value controller);
-//    qjs::Value controller();
+    ObjectId id() { return mId; }
+    std::string idStr() { return mId.toString(); }
     qjs::Value root();
 
     static void registerClass(qjs::Context::Module& module) {
         module.class_<JsUIScreen>("JsUIScreen")
-//        .fun<&JsUIScreen::setController>("setController")
-//        .fun<&JsUIScreen::controller>("controller")
+        .fun<&JsUIScreen::idStr>("id")
         .fun<&JsUIScreen::root>("root");
     }
 
 private:
+    ObjectId mId;
     JsEnv* mEnv{nullptr};
 //    qjs::Value mController;
     JsUiElement mRoot;

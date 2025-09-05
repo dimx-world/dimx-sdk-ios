@@ -2,27 +2,36 @@
 #include <Common.h>
 #include <config/Config.h>
 
+DECL_ENUM(UserRole,  Admin,   Editor,   Viewer)
+DECL_ESTR(UserRole, "Admin", "Editor", "Viewer")
+
 struct DimentionRecord
 {
-    bool own{false};
-    bool admin{false};
-    bool edit{false};
-    bool view{false};
-    bool enabled{false};
+    UserRole role{UserRole::None};
+    bool enabled{true};
     bool favorite{false};
     std::string env{};
+
     DimentionRecord(const Config& config)
-    : own(config.get("own", false))
-    , admin(config.get("admin", false))
-    , edit(config.get("edit", false))
-    , view(config.get("view", false))
-    , enabled(config.get("enabled", false))
+    : role(config.get("role", UserRole::None))
+    , enabled(config.get("enabled", true))
     , favorite(config.get("favorite", false))
     , env(config.get("env", ""))
     {
         if (env.empty()) {
             env = "prod";
         }
+        if (role == UserRole::None) {
+            if (config.get("own", false) || config.get("admin", false)) {
+                role = UserRole::Admin;
+            } else if (config.get("edit", false)) {
+                role = UserRole::Editor;
+            }
+        }
+    }
+
+    bool editable() const {
+        return role == UserRole::Admin || role == UserRole::Editor;
     }
 };
 
@@ -49,7 +58,7 @@ public:
 
     bool canEdit(ObjectId dimId) const {
         auto iter = mDimensions.find(dimId);
-        return iter != mDimensions.end() && (iter->second.own || iter->second.admin || iter->second.edit);
+        return iter != mDimensions.end() && iter->second.editable();
     }
 
 private:

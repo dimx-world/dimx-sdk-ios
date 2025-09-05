@@ -5,8 +5,7 @@
 class JsQuat
 {
 public:
-    JsQuat() = default;
-    JsQuat(double w, double x, double y, double z) 
+    JsQuat(double w = 1.0, double x = 0.0, double y = 0.0, double z = 0.0) 
     : mQuat(w, x, y, z)
     {}
 
@@ -24,7 +23,6 @@ public:
 
     static void registerClass(qjs::Context::Module& module) {
         module.class_<JsQuat>("Quat")
-        .constructor<>()
         .constructor<double, double, double, double>()
         .fun<&JsQuat::setAngles>("setAngles");
     }
