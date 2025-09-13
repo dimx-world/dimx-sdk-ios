@@ -15,13 +15,15 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/google-ar/arcore-ios-sdk", from: "1.49.0")
+        .package(url: "https://github.com/google-ar/arcore-ios-sdk", from: "1.49.0"),
+        .package(url: "https://github.com/kirualex/SwiftyGif.git", from: "5.4.4")
     ],
     targets: [
         .target(
             name: "DimxCore",
             dependencies: [
                 "DimxNative",
+                "SwiftyGif",
                 .product(name: "ARCoreGARSession", package: "arcore-ios-sdk"),
                 .product(name: "ARCoreCloudAnchors", package: "arcore-ios-sdk"),
                 .product(name: "ARCoreGeospatial", package: "arcore-ios-sdk"),
@@ -29,7 +31,8 @@ let package = Package(
             path: "DimxCore",
             resources: [
                 .copy("src/WebInterface.js"),
-                .copy("data")
+                .copy("data"),
+                .process("res")
             ],
             linkerSettings: [
                 .unsafeFlags(["-ObjC"])
