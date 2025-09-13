@@ -14,7 +14,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     private let mManager = CLLocationManager()
     private var mLocation: CLLocation?
     private var mAuthCallback: ((Bool) -> Void)?
-
+    
     override init() {
         super.init()
         mManager.delegate = self
@@ -26,25 +26,35 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     func location() -> CLLocation? {
         return mLocation;
     }
-
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    
+    func handleAuthorizationStatus(_ status: CLAuthorizationStatus) {
         Logger.info("location manager authorization status changed: \(status.rawValue)")
         switch status {
-            case .authorizedWhenInUse, .authorizedAlways:
-                mAuthCallback?(true)
-                mAuthCallback = nil
-                break
-            case .denied, .restricted:
-                mAuthCallback?(false)
-                mAuthCallback = nil
-                break
-            case .notDetermined:
-                break
-            @unknown default:
-                break
+        case .authorizedWhenInUse, .authorizedAlways:
+            mAuthCallback?(true)
+            mAuthCallback = nil
+            break
+        case .denied, .restricted:
+            mAuthCallback?(false)
+            mAuthCallback = nil
+            break
+        case .notDetermined:
+            break
+        @unknown default:
+            break
         }
     }
-
+    
+    //For iOS >= 14
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        handleAuthorizationStatus(manager.authorizationStatus)
+    }
+    
+    //For iOS < 14
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        handleAuthorizationStatus(status)
+    }
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         Logger.error("location manager error: \(error.localizedDescription)")
     }
@@ -74,14 +84,16 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                                      mLocation!.verticalAccuracy)
         }
     }
-
+    
     func requestPermission(_ callback: @escaping (Bool) -> Void) {
-        if !CLLocationManager.locationServicesEnabled() {
-            callback(false)
-            return
+        let status: CLAuthorizationStatus
+        if #available(iOS 14.0, *) {
+            status = mManager.authorizationStatus
+        } else {
+            status = CLLocationManager.authorizationStatus()
         }
-
-        switch CLLocationManager.authorizationStatus() {
+        
+        switch status {
         case .notDetermined:
             mAuthCallback = callback
             mManager.requestWhenInUseAuthorization()

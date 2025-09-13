@@ -29,7 +29,8 @@ let package = Package(
             path: "DimxCore",
             resources: [
                 .copy("src/WebInterface.js"),
-                .copy("data")
+                .copy("data"),
+                .process("res")
             ],
             linkerSettings: [
                 .unsafeFlags(["-ObjC"])

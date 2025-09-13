@@ -13,7 +13,7 @@ import DimxNative
 
 class WebViewCtrl: UIViewController, WKUIDelegate, WKScriptMessageHandler, WKNavigationDelegate {
     //static private var startupAppUrl: String = ""
-
+    var gifView: WKWebView!
     var webView: WKWebView!
     var versionChecked = false
     var versionReloaded = false
@@ -48,6 +48,9 @@ class WebViewCtrl: UIViewController, WKUIDelegate, WKScriptMessageHandler, WKNav
     }
     
     override func loadView() {
+        let containerView = UIView(frame: UIScreen.main.bounds)
+        containerView.backgroundColor = .white
+        
         let config = WKWebViewConfiguration()
         config.userContentController.add(self, name: "WebViewCtrl")
 
@@ -71,7 +74,7 @@ class WebViewCtrl: UIViewController, WKUIDelegate, WKScriptMessageHandler, WKNav
         config.mediaTypesRequiringUserActionForPlayback = []
         //---
         
-        webView = WKWebView(frame: .zero, configuration: config)
+        webView = WKWebView(frame: containerView.bounds, configuration: config)
         webView.uiDelegate = self
         webView.navigationDelegate = self
         if #available(iOS 16.4, *) {
@@ -79,12 +82,40 @@ class WebViewCtrl: UIViewController, WKUIDelegate, WKScriptMessageHandler, WKNav
         } else {
             // Fallback on earlier versions
         }
-/*
-        webView.scrollView.bounces = false
-        webView.scrollView.alwaysBounceVertical = false
-        webView.scrollView.alwaysBounceHorizontal = false
-*/
-        self.view = webView
+        /*
+         webView.scrollView.bounces = false
+         webView.scrollView.alwaysBounceVertical = false
+         webView.scrollView.alwaysBounceHorizontal = false
+         */
+        
+        containerView.addSubview(webView)
+        
+        gifView = WKWebView(frame: containerView.bounds)
+        gifView.isOpaque = false
+        gifView.backgroundColor = .clear
+        gifView.scrollView.backgroundColor = .clear
+        gifView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.addSubview(gifView)
+
+        NSLayoutConstraint.activate([
+            gifView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            gifView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            gifView.widthAnchor.constraint(equalToConstant: 100),
+            gifView.heightAnchor.constraint(equalToConstant: 100)
+        ])
+
+        if let url = Bundle.module.url(forResource: "spinner", withExtension: "gif") {
+            if let data = try? Data(contentsOf: url) {
+                gifView.load(
+                    data,
+                    mimeType: "image/gif",
+                    characterEncodingName: "utf-8",
+                    baseURL: url.deletingLastPathComponent()
+                )
+            }
+        }
+        
+        self.view = containerView
         
         NotificationCenter.default.addObserver(self, selector: #selector(appDidEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
@@ -267,6 +298,25 @@ class WebViewCtrl: UIViewController, WKUIDelegate, WKScriptMessageHandler, WKNav
         decisionHandler(.cancel)
     }
     
+    func hideSpinner() {
+        guard let gifView = self.gifView else { return }
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut) {
+               gifView.alpha = 0
+           } completion: { _ in
+               gifView.removeFromSuperview()
+           }
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        hideSpinner()
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error)
+    {
+        hideSpinner()
+    }
+    
     func checkWebVersions() {
         for versionUrl in Context.inst().appConfig().webVersions() {
             Logger.info("Checking web version: \(versionUrl)")
@@ -368,7 +418,7 @@ class WebViewCtrl: UIViewController, WKUIDelegate, WKScriptMessageHandler, WKNav
         UIApplication.shared.isIdleTimerDisabled = false
     }
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+        super.viewWillAppear(animated)
         print("WebView will appear")
         notifyWebViewShow()
         UIApplication.shared.isIdleTimerDisabled = true
