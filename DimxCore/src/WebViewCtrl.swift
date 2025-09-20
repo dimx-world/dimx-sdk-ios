@@ -13,7 +13,7 @@ import DimxNative
 
 class WebViewCtrl: UIViewController, WKUIDelegate, WKScriptMessageHandler, WKNavigationDelegate {
     //static private var startupAppUrl: String = ""
-    var gifView: WKWebView!
+    var spinnerView: WKWebView!
     var webView: WKWebView!
     var versionChecked = false
     var versionReloaded = false
@@ -90,30 +90,7 @@ class WebViewCtrl: UIViewController, WKUIDelegate, WKScriptMessageHandler, WKNav
         
         containerView.addSubview(webView)
         
-        gifView = WKWebView(frame: containerView.bounds)
-        gifView.isOpaque = false
-        gifView.backgroundColor = .clear
-        gifView.scrollView.backgroundColor = .clear
-        gifView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.addSubview(gifView)
-
-        NSLayoutConstraint.activate([
-            gifView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            gifView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            gifView.widthAnchor.constraint(equalToConstant: 100),
-            gifView.heightAnchor.constraint(equalToConstant: 100)
-        ])
-
-        if let url = Bundle.module.url(forResource: "spinner", withExtension: "gif") {
-            if let data = try? Data(contentsOf: url) {
-                gifView.load(
-                    data,
-                    mimeType: "image/gif",
-                    characterEncodingName: "utf-8",
-                    baseURL: url.deletingLastPathComponent()
-                )
-            }
-        }
+        createSpinnerView(containerView)
         
         self.view = containerView
         
@@ -298,14 +275,43 @@ class WebViewCtrl: UIViewController, WKUIDelegate, WKScriptMessageHandler, WKNav
         decisionHandler(.cancel)
     }
     
+    func createSpinnerView(_ containerView: UIView) {
+        spinnerView = WKWebView(frame: containerView.bounds)
+        spinnerView.isOpaque = false
+        spinnerView.backgroundColor = .clear
+        spinnerView.scrollView.backgroundColor = .clear
+        spinnerView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.addSubview(spinnerView)
+
+        NSLayoutConstraint.activate([
+            spinnerView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            spinnerView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            spinnerView.widthAnchor.constraint(equalToConstant: 100),
+            spinnerView.heightAnchor.constraint(equalToConstant: 100)
+        ])
+
+        if let url = Bundle.module.url(forResource: "spinner", withExtension: "gif") {
+            if let data = try? Data(contentsOf: url) {
+                spinnerView.load(
+                    data,
+                    mimeType: "image/gif",
+                    characterEncodingName: "utf-8",
+                    baseURL: url.deletingLastPathComponent()
+                )
+            }
+        }
+        //Always on top of all subviews
+        containerView.bringSubviewToFront(spinnerView)
+    }
+    
     func hideSpinner() {
-        guard let gifView = self.gifView else { return }
+        guard let spinner = self.spinnerView else { return }
         
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut) {
-               gifView.alpha = 0
-           } completion: { _ in
-               gifView.removeFromSuperview()
-           }
+            spinner.alpha = 0
+        } completion: { _ in
+            spinner.removeFromSuperview()
+        }
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
