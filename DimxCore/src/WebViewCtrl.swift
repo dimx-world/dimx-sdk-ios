@@ -15,21 +15,26 @@ class WebViewCtrl: UIViewController, WKUIDelegate, WKScriptMessageHandler, WKNav
     //static private var startupAppUrl: String = ""
     var spinnerView: WKWebView!
     var webView: WKWebView!
-    var versionChecked = false
     var versionReloaded = false
+    var firstTimeUrlLoad = true
     
     
     func loadWebUrl(_ url: String) {
         Logger.info("loadAppUrl: \(url)")
-        let webUrl = Context.inst().convertAppUrlToWebUrl(url)
+        var webUrl = Context.inst().convertAppUrlToWebUrl(url)
         Logger.info("loadAppUrl converted: \(webUrl)")
+        
+        if firstTimeUrlLoad {
+            firstTimeUrlLoad = false
+    
+            if (webUrl.isEmpty) {
+                webUrl = Context.inst().settings().webAppHost()
+            }
+            checkWebVersions()
+        }
 
         if (!webUrl.isEmpty) {
             webView.load(URLRequest(url: URL(string: webUrl)!))
-            if !versionChecked {
-                versionChecked = true
-                checkWebVersions()
-            }
         } else {
             let jscode =
                 """
