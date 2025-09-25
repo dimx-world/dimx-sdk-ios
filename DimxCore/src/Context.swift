@@ -172,10 +172,15 @@ public class Context
             mWebViewCtrl = WebViewCtrl()
             mWebViewCtrl!.modalPresentationStyle = .fullScreen
         }
-
+        
+        var setUrl = webUrl
+        if (setUrl.isEmpty) {
+            setUrl = mSettings.webAppHost()
+        }
+        
         mWindow.rootViewController!.dismiss(animated: false)
-        mWindow.rootViewController!.present(mWebViewCtrl!, animated: false, completion: {[self, webUrl] in
-            mWebViewCtrl!.loadWebUrl(webUrl)
+        mWindow.rootViewController!.present(mWebViewCtrl!, animated: false, completion: {[self, setUrl] in
+            mWebViewCtrl!.loadWebUrl(setUrl)
         })
     }
 
